@@ -44,23 +44,17 @@ Things you may want to cover:
 - has_many :item_images
 - belongs_to :user
 - belongs_to :category
-- belongs_to :bland　←
-- belongs_to :bland　←二つある
+- belongs_to :bland
 - belongs_to :size
 - belongs_to :item_condition
 - belongs_to :postage_payer
 - belongs_to :postage_type
 - belongs_to :preparation_day
-- belongs_to :user_evaluation ←has_one
-
-belongs_to :user ←二つあるので不要
-
+- belongs_to :user_evaluation
 - has_many :favorites
-has_many :favorited_users, through: :favorites, source: :user  ←Slackにあるリンク見ると、片方しか書いてなさそうですね。なので、60行目の記述で良いのかなと思いましたが、どうでしょう？
-- has_many  :users,  through:  :favorites 
-
-- has_many :comments　←追加
-- has_many  :users,  through:  :comments  ←追加　中間テーブル
+- has_many :users,  through:  :favorites
+- has_many :comments
+- has_many  :users,  through:  :comments
 
 
 ##item_imagesテーブル
@@ -146,8 +140,7 @@ has_many :favorited_users, through: :favorites, source: :user  ←Slackにある
 ### Association
 - has_many :items
 - belongs_to :credit_card
-- has_many :evaluations, through: :users_evaluations　←中間テーブルではないため不要
-- has_many :users_evaluations
+- has_many:user_evaluations
 - belongs_to :destination
 - belongs_to :sale
 - belongs_to :point
@@ -158,12 +151,9 @@ has_many :favorites, dependent: :destroy
 has_many :items, dependent: :destroy
 has_many :favorited_items, through: :favorites, source: :item
 
- 
-- has_many :comments　←追加　中間テーブル
-  has_many :items
-- has_many :commented_items, through: :comments, source: :item　←追加　中間テーブル
-
-
+- has_many :comments
+- has_many :items
+- has_many :commented_items, through: :comments, source: :item
 
 ##credit_cardsテーブル
 |Column|Type|Options|
@@ -207,10 +197,10 @@ has_many :favorited_items, through: :favorites, source: :item
 |evaluation|string|null: false|
 
 ### Association
-- has_many :users, through: :users_evaluations ←中間テーブルではないため不要
-- has_many :users_evaluations
+- has_many :user_evaluations
 
-##users_evaluationsテーブル
+
+##user_evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
