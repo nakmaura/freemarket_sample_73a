@@ -140,7 +140,7 @@ Things you may want to cover:
 |birth_day|date|null: false|
 
 ### Association
-- has_many :credit_card
+- has_many :credit_cards
 - has_many:user_evaluations
 - belongs_to :destination
 - belongs_to :sale
