@@ -26,7 +26,6 @@ Things you may want to cover:
 ##itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_img_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |introduction|text|null: false|
 |category_id|references|null: false, foreign_key: true|
@@ -44,7 +43,7 @@ Things you may want to cover:
 - has_many :item_images
 - belongs_to :user
 - belongs_to :category
-- belongs_to :bland
+- belongs_to :brand
 - belongs_to :size
 - belongs_to :item_condition
 - belongs_to :postage_payer
@@ -117,10 +116,13 @@ Things you may want to cover:
 ##categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|strig|null: false|
+|name|string|null: false|
+|ancestry|string||
 
 ### Association
 - has_many :items
+- has_ancestry
+
 
 ##usersテーブル
 |Column|Type|Options|
@@ -138,8 +140,7 @@ Things you may want to cover:
 |birth_day|date|null: false|
 
 ### Association
-- has_many :items
-- belongs_to :credit_card
+- has_many :credit_card
 - has_many:user_evaluations
 - belongs_to :destination
 - belongs_to :sale
@@ -152,7 +153,6 @@ has_many :items, dependent: :destroy
 has_many :favorited_items, through: :favorites, source: :item
 
 - has_many :comments
-- has_many :items
 - has_many :commented_items, through: :comments, source: :item
 
 ##credit_cardsテーブル
@@ -215,10 +215,10 @@ has_many :favorited_items, through: :favorites, source: :item
 ##destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|destination_first_name|string|null: false|
-|destination_last_name|string|null: false|
-|destination_first_name_kana|string|null: false|
-|destination_last_name_kana|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |post_code|integer(7)|null:false|
 |prefecture_code|integer|null:false|
 |city|string|null:false|
