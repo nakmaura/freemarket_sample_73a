@@ -56,8 +56,8 @@ Things you may want to cover:
 belongs_to :user ←二つあるので不要
 
 - has_many :favorites
-has_many :favorited_users, through: :favorites, source: :user  　←favorited_usersですが、命名はなんでもよいと思います。長いので、favoritesで大丈夫かなと思います。
-- has_many  :users,  through:  :favorites  ←カリキュラムに沿えるとこんな感じ?sorece::userとはなんでしょうか？
+has_many :favorited_users, through: :favorites, source: :user  ←Slackにあるリンク見ると、片方しか書いてなさそうですね。なので、60行目の記述で良いのかなと思いましたが、どうでしょう？
+- has_many  :users,  through:  :favorites 
 
 - has_many :comments　←追加
 - has_many  :users,  through:  :comments  ←追加　中間テーブル
@@ -154,17 +154,14 @@ has_many :favorited_users, through: :favorites, source: :user  　←favorited_u
 - has_many :todo_lists
 - has_many :notices
 
-has_many :favorites, dependent: :destroy ←OK
-
+has_many :favorites, dependent: :destroy
 has_many :items, dependent: :destroy
-has_many :favorited_items, through: :favorites, source: :item　
-has_many :items, through: :favorites, dependent: :destroy  ←上記2行を消して、こちらでよいかなと思います。
-source: :itemはちょっと分からないです。。dependent: :destroyは、あった方が良い感じでしょうか？
+has_many :favorited_items, through: :favorites, source: :item
+
  
-
-
 - has_many :comments　←追加　中間テーブル
-- has_many :items, through: :comments　←追加　中間テーブル
+  has_many :items
+- has_many :commented_items, through: :comments, source: :item　←追加　中間テーブル
 
 
 
