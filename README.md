@@ -151,10 +151,8 @@ Things you may want to cover:
 ##credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
+|card_id|string|null: false|unique: true|
+|customer_id|string|null: false|unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
