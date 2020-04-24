@@ -49,12 +49,9 @@ Things you may want to cover:
 - belongs_to :postage_payer
 - belongs_to :postage_type
 - belongs_to :preparation_day
-- belongs_to :user_evaluation
+- has_one :user_evaluation
 - has_many :favorites
-- has_many :users,  through:  :favorites
 - has_many :comments
-- has_many  :users,  through:  :comments
-
 
 ##item_imagesテーブル
 |Column|Type|Options|
@@ -142,18 +139,14 @@ Things you may want to cover:
 ### Association
 - has_many :credit_cards
 - has_many:user_evaluations
-- belongs_to :destination
-- belongs_to :sale
-- belongs_to :point
+- has_one :destination
+- has_one :sale
+- has_one :point
 - has_many :todo_lists
 - has_many :notices
-
-has_many :favorites, dependent: :destroy
-has_many :items, dependent: :destroy
-has_many :favorited_items, through: :favorites, source: :item
-
+- has_many :favorites, dependent: :destroy
+- has_many :items, dependent: :destroy
 - has_many :comments
-- has_many :commented_items, through: :comments, source: :item
 
 ##credit_cardsテーブル
 |Column|Type|Options|
