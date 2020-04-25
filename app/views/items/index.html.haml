@@ -1,23 +1,31 @@
 .headder
   .headder__inner
     .headder__main
-      %h1(class='hedder__icon')
+      %h1(class='headder__icon')
         %a(href="/")
           = image_tag "logo.png", size: "140x40", alt: "test1"
-      .hedder__seachbox
-        .hedder__serchbox-input
-        .hedder__seachbox-icon
-    .hedder__nav
-      .hedder__nav-listsleft
-        .hedder__nav-listsleft-leftitem
-          カテゴリー
-        .hedder__nav-listsleft-rightitem
-          ブランド
-      .hedder__nav-listsright
-        .hedder__nav-listsright-loginitem
-          ログイン
-        .hedder__nav-listsright-newitem
-          新規会員登録
+      .headder__seachbox
+        .headder__serchbox-input
+        .headder__seachbox-icon
+    .headder__nav
+      %ul(class="headder__nav-listsleft")
+        %li(class="headder__nav-listsleft-leftitem")
+          %a(id="catBtn" href="#")
+            カテゴリー
+          .headder__nav-tree-display
+            %ul(class="headder__nav-categorytree")
+              %li(class="headder__nav-categorytree-item")
+        %li(class="headder__nav-listsleft-rightitem")
+          %a(id="catBtn" href="#")
+            ブランド
+      %ul(class="headder__nav-listsright")
+        %li(class="headder__nav-listsright-loginitem")
+          %a(id="catBtn" href="#")
+            ログイン
+          %ul(class="headder__nav-listsright-brandsPulldown")
+        %li(class="headder__nav-listsright-newitem")
+          %a(id="catBtn" href="#")
+            新規会員登録
 .main
   .main__visual
     .main__visual-content
@@ -29,8 +37,10 @@
         フリマアプリです
       .main__visual-content-btn
         %a(class="aBtn" href="#")
+          = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
         %a(class="aBtn" href="#")
-  .main__visual-picture
+          = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
+    .main__visual-picture
   .main__topintroduction
     %h2(claas="main__topintroduction-subtitle")
       FURIMAが選ばれる3つの理由
@@ -62,7 +72,7 @@
           <span>業界最安</span>
         %p(class="main__topintroduction-list-description")
           最大3%でお得に出品&購入！
-  .main__topmidle
+  .main__topmiddle
     .main__topmiddle-inner
       .main__topmiddle-subtitle
         会員数日本一位
@@ -71,6 +81,10 @@
         出品・購入回数も業界最多です！</br>
         ほしかったあの商品に出会えるかもしれません。
       .main__topmiddle-btn
+        %a(class="aBtn" href="#")
+          = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
+        %a(class="aBtn" href="#")
+          = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
   .main__topkey
     %h2(class="main__topkey-head")
       FURIMAの特徴
@@ -150,7 +164,7 @@
                     0
                 %p
                   (税込)
-    .main__pickupconteiner
+  .main__pickupconteiner-last
     %h2(class="main__pickupconteiner-head")
       ピックアップブランド
     .main__pickupconteiner-productbox
@@ -207,8 +221,6 @@
                     0
                 %p
                   (税込)
-
-
 .appbanner
   .appbanner__inner
     .appbanner__inner-title
@@ -216,6 +228,10 @@
       .appbanner__inner-text
         今すぐ無料ダウンロード！
     .appbanner__inner-icon
+      %a(class="aBtn" href="#")
+        = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
+      %a(class="aBtn" href="#")
+        = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
 .footer
   %ul(class="footer__contents")
     %li(class="footer__content")
@@ -223,32 +239,41 @@
         FURIMAについて
       %ul
         %li
-          %a
+          %a(href="/")
+            会社概要（運営会社）
         %li
-          %a
+          %a(href="/")
+            プライバシーポリシー
         %li
-          %a
+          %a(href="/")
+            FURIMA利用規約
         %li
-          %a
+          %a(href="/")
+            ポイントに関する特約
     %li(class="footer__content")
       %h2(class="footer__content-head")
         FURIMAを見る
       %ul
         %li
-          %a
+          %a(href="/")
+            カテゴリー一覧
         %li
-          %a
+          %a(href="/")
+            ブランド一覧
     %li(class="footer__content")
       %h2(class="footer__content-head")
         ヘルプ＆ガイド
       %ul
         %li
-          %a
+          %a(href="/")
+            FURIMAガイド
         %li
-          %a
+          %a(href="/")
+            FURIMAロゴ利用ガイドライン
         %li
-          %a
+          %a(href="/")
+            お知らせ
   .footer__logo
-    %a
-      %img
-    %p
+    %a(href="/")
+      = image_tag "logo-white.png", size: "160x46", alt: "test1"
+  %p© FURIMA
