@@ -30,7 +30,7 @@
           %a(id="catBtn" href="#")
             新規会員登録
 .main
-  .main__visual
+  %section(class="main__visual")
     .main__visual-content
       %h2(class="main__visual-content-subtitle")
         </br>
@@ -44,7 +44,7 @@
         %a(class="aBtn" href="#")
           = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
     .main__visual-picture
-  .main__topintroduction
+  %section(class="main__topintroduction")
     %h2(claas="main__topintroduction-subtitle")
       FURIMAが選ばれる3つの理由
     %ul(class="main__topintroduction-lists")
@@ -75,7 +75,7 @@
           <span>業界最安</span>
         %p(class="main__topintroduction-list-description")
           最大3%でお得に出品&購入！
-  .main__topmiddle
+  %section(class="main__topmiddle")
     .main__topmiddle-inner
       .main__topmiddle-subtitle
         会員数日本一位
@@ -88,7 +88,7 @@
           = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
         %a(class="aBtn" href="#")
           = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
-  .main__topkey
+  %section(class="main__topkey")
     %h2(class="main__topkey-head")
       FURIMAの特徴
     .main__topkey-items
@@ -110,7 +110,7 @@
           様々な支払いに対応
         %p(class="main__topkey-item-detail")
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  .main__pickupconteiner
+  %section(class="main__pickupconteiner")
     %h2(class="main__pickupconteiner-head")
       ピックアップカテゴリー
     .main__pickupconteiner-productbox
@@ -131,7 +131,7 @@
                   %li
                     30000円
                   %li
-                    %i.fas.fa-star
+                    = icon("fas", "star")
                     0
                 %p
                   (税込)
@@ -167,7 +167,7 @@
                     0
                 %p
                   (税込)
-  .main__pickupconteiner-last
+  %section(class="main__pickupconteiner-last")
     %h2(class="main__pickupconteiner-head")
       ピックアップブランド
     .main__pickupconteiner-productbox
@@ -224,7 +224,7 @@
                     0
                 %p
                   (税込)
-.appbanner
+%aside(class="appbanner")
   .appbanner__inner
     .appbanner__inner-title
       だれでもかんたん、人生を変えるフリマアプリ
