@@ -1,8 +1,8 @@
 .headder
   .headder__inner
     .headder__main
-      %h1(class='headder__icon')
-        %a(href="/")
+      %h1.headder__icon
+        = link_to "/" do
           = image_tag "logo.png", size: "", alt: "test1"
       .headder__seachbox
         .form
@@ -11,120 +11,129 @@
             .headder__seachbox-icon
               = image_tag "icon-search 1.png"
     .headder__nav
-      %ul(class="headder__nav-listsleft")
-        %li(class="headder__nav-listsleft-leftitem")
-          %a(id="catBtn" href="#")
+      %ul.headder__nav-listsleft
+        %li.headder__nav-listsleft-leftitem
+          = link_to root_path,id:'catBtn' do
             カテゴリー
           .headder__nav-tree-display
-            %ul(class="headder__nav-categorytree")
-              %li(class="headder__nav-categorytree-item")
-        %li(class="headder__nav-listsleft-rightitem")
-          %a(id="catBtn" href="#")
+            %ul.headder__nav-categorytree
+              %li.headder__nav-categorytree-item
+        %li.headder__nav-listsleft-rightitem
+          = link_to root_path,id:'catBtn' do
             ブランド
-      %ul(class="headder__nav-listsright")
-        %li(class="headder__nav-listsright-loginitem")
-          %a(id="catBtn" href="#")
+      %ul.headder__nav-listsright
+        %li.headder__nav-listsright-loginitem
+          = link_to root_path,id:'catBtn' do
             ログイン
-          %ul(class="headder__nav-listsright-brandsPulldown")
-        %li(class="headder__nav-listsright-newitem")
-          %a(id="catBtn" href="#")
+          %ul.headder__nav-listsright-brandsPulldown
+        %li.headder__nav-listsright-newitem
+          = link_to root_path,id:'catBtn' do
             新規会員登録
 .main
-  %section(class="main__visual")
+  %section.main__visual
     .main__visual-content
-      %h2(class="main__visual-content-subtitle")
-        </br>
+      %h2.main__visual-content-subtitle
+        %br
         人生を変えるフリマアプリ
-      %p(class="main__visual-content-text")
-        FURIMAはだれでもかんたんに出品・購入できる</br>
+      %p.main__visual-content-text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
         フリマアプリです
       .main__visual-content-btn
-        %a(class="aBtn" href="#")
+        = link_to root_path,class:'aBtn' do
           = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
-        %a(class="aBtn" href="#")
+        = link_to root_path,class:'aBtn' do
           = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
     .main__visual-picture
-  %section(class="main__topintroduction")
-    %h2(claas="main__topintroduction-subtitle")
+  %section.main__topintroduction
+    %h2.main__topintroduction-subtitle
       FURIMAが選ばれる3つの理由
-    %ul(class="main__topintroduction-lists")
-      %li(class="main__topintroduction-list")
+    %ul.main__topintroduction-lists
+      %li.main__topintroduction-list
         .main__topintroduction-list-pict
-          %span(class="number")1
+          %span.number
+            1
           = image_tag "pict-reason-01.jpg"
-        %h3(class="main__topintroduction-list-text")
-          <span>3分</span>
+        %h3.main__topintroduction-list-text
+          %span
+            3分
           ですぐに出品
-        %p(class="main__topintroduction-list-description")
+        %p.main__topintroduction-list-description
           スマホで入力するだけで簡単に出品できる！
-      %li(class="main__topintroduction-list")
+      %li.main__topintroduction-list
         .main__topintroduction-list-pict
-          %span(class="number")2
+          %span.number
+            2
           = image_tag "pict-reason-02.jpg"
-        %h3(class="main__topintroduction-list-text")
-          <span>シンプル</span>
+        %h3.main__topintroduction-list-text
+          %span
+            シンプル
           で使いやすい
-        %p(class="main__topintroduction-list-description")
+        %p.main__topintroduction-list-description
           めんどくさい入力は必要なく、検索も購入もスムーズ！
-      %li(class="main__topintroduction-list-last")
+      %li.main__topintroduction-list-last
         .main__topintroduction-list-pict
-          %span(class="number")3
+          %span.number
+            3
           = image_tag "pict-reason-03.jpg"
-        %h3(class="main__topintroduction-list-text")
+        %h3.main__topintroduction-list-text
           手数料
-          <span>業界最安</span>
-        %p(class="main__topintroduction-list-description")
+          %span
+            業界最安
+        %p.main__topintroduction-list-description
           最大3%でお得に出品&購入！
-  %section(class="main__topmiddle")
+  %section.main__topmiddle
     .main__topmiddle-inner
       .main__topmiddle-subtitle
         会員数日本一位
       .main__topmiddle-text
-        FURIMAは、フリマアプリで最も人気。</br>
-        出品・購入回数も業界最多です！</br>
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
         ほしかったあの商品に出会えるかもしれません。
       .main__topmiddle-btn
-        %a(class="aBtn" href="#")
+        = link_to root_path,class:'aBtn' do
           = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
-        %a(class="aBtn" href="#")
+        = link_to root_path,class:'aBtn' do
           = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
-  %section(class="main__topkey")
-    %h2(class="main__topkey-head")
+  %section.main__topkey
+    %h2.main__topkey-head
       FURIMAの特徴
     .main__topkey-items
       .main__topkey-item
         = image_tag "icon-01.png"
-        %h3(class="main__topkey-item-subtitle")
+        %h3.main__topkey-item-subtitle
           簡単に売り買いできる
-        %p(class="main__topkey-item-detail")
+        %p.main__topkey-item-detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       .main__topkey-item
         = image_tag "icon-03.png"
-        %h3(class="main__topkey-item-subtitle")
+        %h3.main__topkey-item-subtitle
           売上金は即日振込みに対応
-        %p(class="main__topkey-item-detail")
+        %p.main__topkey-item-detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       .main__topkey-item
         = image_tag "icon-04.png"
-        %h3(class="main__topkey-item-subtitle")
+        %h3.main__topkey-item-subtitle
           様々な支払いに対応
-        %p(class="main__topkey-item-detail")
+        %p.main__topkey-item-detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  %section(class="main__pickupconteiner")
-    %h2(class="main__pickupconteiner-head")
+  %section.main__pickupconteiner
+    %h2.main__pickupconteiner-head
       ピックアップカテゴリー
     .main__pickupconteiner-productbox
       .main__pickupconteiner-producthead
-        %a(href="/")
-          %h3(class="main__pickupconteiner-producttitle")
+        = link_to "/" do
+          %h3.main__pickupconteiner-producttitle
             新規投稿商品
       .main__pickupconteiner-productlists
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product3
               .main__pickupconteiner-productlist-details
                 %ul
@@ -136,11 +145,11 @@
                 %p
                   (税込)
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product2
               .main__pickupconteiner-productlist-details
                 %ul
@@ -152,11 +161,11 @@
                 %p
                   (税込)
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product1
               .main__pickupconteiner-productlist-details
                 %ul
@@ -167,21 +176,21 @@
                     0
                 %p
                   (税込)
-  %section(class="main__pickupconteiner-last")
-    %h2(class="main__pickupconteiner-head")
+  %section.main__pickupconteiner-last
+    %h2.main__pickupconteiner-head
       ピックアップブランド
     .main__pickupconteiner-productbox
       .main__pickupconteiner-producthead
-        %a(href="/")
-          %h3(class="main__pickupconteiner-producttitle")
+        = link_to "/" do
+          %h3.main__pickupconteiner-producttitle
             アーカイバ
       .main__pickupconteiner-productlists
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product3
               .main__pickupconteiner-productlist-details
                 %ul
@@ -193,11 +202,11 @@
                 %p
                   (税込)
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product2
               .main__pickupconteiner-productlist-details
                 %ul
@@ -209,11 +218,11 @@
                 %p
                   (税込)
         .main__pickupconteiner-productlist
-          %a(href="/")
+          = link_to "/" do
             .main__pickupconteiner-productlist-img
               = image_tag "icon-03.png"
             .main__pickupconteiner-productlist-body
-              %h3(class="main__pickupconteiner-productlist-name")
+              %h3.main__pickupconteiner-productlist-name
                 product1
               .main__pickupconteiner-productlist-details
                 %ul
@@ -224,64 +233,65 @@
                     0
                 %p
                   (税込)
-%aside(class="appbanner")
+%aside.appbanner
   .appbanner__inner
     .appbanner__inner-title
       だれでもかんたん、人生を変えるフリマアプリ
       .appbanner__inner-text
         今すぐ無料ダウンロード！
     .appbanner__inner-icon
-      %a(class="aBtn" href="#")
+      = link_to root_path,class:'aBtn' do
         = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
-      %a(class="aBtn" href="#")
+      = link_to root_path,class:'aBtn' do
         = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
 .footer
-  %ul(class="footer__contents")
-    %li(class="footer__content")
-      %h2(class="footer__content-head")
+  %ul.footer__contents
+    %li.footer__content
+      %h2.footer__content-head
         FURIMAについて
       %ul
         %li
-          %a(href="/")
+          = link_to "/" do
             会社概要（運営会社）
         %li
-          %a(href="/")
+          = link_to "/" do
             プライバシーポリシー
         %li
-          %a(href="/")
+          = link_to "/" do
             FURIMA利用規約
         %li
-          %a(href="/")
+          = link_to "/" do
             ポイントに関する特約
-    %li(class="footer__content")
-      %h2(class="footer__content-head")
+    %li.footer__content
+      %h2.footer__content-head
         FURIMAを見る
       %ul
         %li
-          %a(href="/")
+          = link_to "/" do
             カテゴリー一覧
         %li
-          %a(href="/")
+          = link_to "/" do
             ブランド一覧
-    %li(class="footer__content")
-      %h2(class="footer__content-head")
+    %li.footer__content
+      %h2.footer__content-head
         ヘルプ＆ガイド
       %ul
         %li
-          %a(href="/")
+          = link_to "/" do
             FURIMAガイド
         %li
-          %a(href="/")
+          = link_to "/" do
             FURIMAロゴ利用ガイドライン
         %li
-          %a(href="/")
+          = link_to "/" do
             お知らせ
   .footer__logo
-    %a(href="/")
+    = link_to "/" do
       = image_tag "logo-white.png", size: "160x46", alt: "test1"
   %p© FURIMA
-%a(href="/")
+= link_to "/" do
   .purchaseBtn
-    %span(class="purchaseBtn__text")出品する
+    %span.purchaseBtn__text
+      出品する
     .purchaseBtn__icon
       = image_tag "icon_camera.png", size: "54x54", alt: "test1"
