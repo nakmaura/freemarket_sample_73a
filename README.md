@@ -30,11 +30,6 @@ Things you may want to cover:
 |introduction|text|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|item_condition_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
-|postage_payer_id|references|null: false, foreign_key: true|
-|postage_type_id|references|null: false, foreign_key: true|
-|preparation_day_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|foreign_key: true|
@@ -44,11 +39,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :size
-- belongs_to :item_condition
-- belongs_to :postage_payer
-- belongs_to :postage_type
-- belongs_to :preparation_day
 - has_one :user_evaluation
 - has_many :favorites
 - has_many :comments
@@ -70,46 +60,6 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-##sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string|null: false|
-
-### Association
-- has_many :items
-
-##item_conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_condition|string|null: false|
-
-### Association
-- has_many :items
-
-##postage_payersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postage_payer|string|null: false|
-
-### Association
-- has_many :items
-
-##postage_typesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postage_type|string|null: false|
-
-### Association
-- has_many :items
-
-##preparation_daysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|preparation_day|string|null: false|
-
-### Association
-- has_many :items
-
 ##categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -119,7 +69,6 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_ancestry
-
 
 ##usersテーブル
 |Column|Type|Options|
@@ -132,9 +81,7 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birthday_date|date|null: false|
 
 ### Association
 - has_many :credit_cards
