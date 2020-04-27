@@ -1,34 +1,4 @@
-.headder
-  .headder__inner
-    .headder__main
-      %h1.headder__icon
-        = link_to "/" do
-          = image_tag "logo.png", size: "", alt: "test1"
-      .headder__seachbox
-        .form
-          %input{type:"text",class:"headder__serchbox-input",placeholder:"キーワードから探す"}
-          %button{type:"submit"}
-            .headder__seachbox-icon
-              = image_tag "icon-search 1.png"
-    .headder__nav
-      %ul.headder__nav-listsleft
-        %li.headder__nav-listsleft-leftitem
-          = link_to root_path,id:'catBtn' do
-            カテゴリー
-          .headder__nav-tree-display
-            %ul.headder__nav-categorytree
-              %li.headder__nav-categorytree-item
-        %li.headder__nav-listsleft-rightitem
-          = link_to root_path,id:'catBtn' do
-            ブランド
-      %ul.headder__nav-listsright
-        %li.headder__nav-listsright-loginitem
-          = link_to root_path,id:'catBtn' do
-            ログイン
-          %ul.headder__nav-listsright-brandsPulldown
-        %li.headder__nav-listsright-newitem
-          = link_to root_path,id:'catBtn' do
-            新規会員登録
+= render "headder"
 .main
   %section.main__visual
     .main__visual-content
@@ -244,54 +214,4 @@
         = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
       = link_to root_path,class:'aBtn' do
         = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
-.footer
-  %ul.footer__contents
-    %li.footer__content
-      %h2.footer__content-head
-        FURIMAについて
-      %ul
-        %li
-          = link_to "/" do
-            会社概要（運営会社）
-        %li
-          = link_to "/" do
-            プライバシーポリシー
-        %li
-          = link_to "/" do
-            FURIMA利用規約
-        %li
-          = link_to "/" do
-            ポイントに関する特約
-    %li.footer__content
-      %h2.footer__content-head
-        FURIMAを見る
-      %ul
-        %li
-          = link_to "/" do
-            カテゴリー一覧
-        %li
-          = link_to "/" do
-            ブランド一覧
-    %li.footer__content
-      %h2.footer__content-head
-        ヘルプ＆ガイド
-      %ul
-        %li
-          = link_to "/" do
-            FURIMAガイド
-        %li
-          = link_to "/" do
-            FURIMAロゴ利用ガイドライン
-        %li
-          = link_to "/" do
-            お知らせ
-  .footer__logo
-    = link_to "/" do
-      = image_tag "logo-white.png", size: "160x46", alt: "test1"
-  %p© FURIMA
-= link_to "/" do
-  .purchaseBtn
-    %span.purchaseBtn__text
-      出品する
-    .purchaseBtn__icon
-      = image_tag "icon_camera.png", size: "54x54", alt: "test1"
+= render "footer"
