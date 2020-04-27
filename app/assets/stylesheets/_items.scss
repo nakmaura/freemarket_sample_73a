@@ -395,7 +395,7 @@
                     }
                       i {
                         display: inline-block;
-                        font: normal normal normal 14px/1 FontAwesome;
+                        font-family: "Font Awesome 5 Free";
                         font-size: inherit;
                         text-rendering: auto;
                         -webkit-font-smoothing: antialiased;
@@ -489,11 +489,11 @@
                     }
                       i {
                         display: inline-block;
-                        font: normal normal normal 14px/1 FontAwesome;
                         font-size: inherit;
                         text-rendering: auto;
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
+                        font-family: "Font Awesome 5 Free";
                       }
                       i::before {
                         content: "\f005";
