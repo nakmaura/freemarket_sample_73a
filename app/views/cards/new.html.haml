@@ -1,0 +1,53 @@
+.content
+  //header部分
+  = render "layouts/item-header" 
+  .content-card
+    .content-card__input
+      //bodyのheader部分
+      %h2.content-card__input__head
+        支払い方法
+      //カード番号入力フォーラム
+      .content-card__input__form
+        .content-card__input__form__inner
+          = form_with local:true do |f|
+            .form-group
+              = f.label 'カード番号',class: 'form-group__card-number'
+              %span.form-require
+                必須
+              = f.text_field :content,class: 'form-group__input-number',placeholder: '半角数字のみ'
+              %ul.signup-card-list
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?2246739708',size: '50x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/master-card.svg?2246739708',size: '34x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?2246739708',size: '30x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/jcb.svg?2246739708',size: '32x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/american_express.svg?2246739708',size: '21x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?2246739708',size: '32x20'
+                %li
+                  = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?2246739708',size: '32x20'
+            .form-signup
+              = f.label '有効期限',class: 'form-signup__expire'
+              %span.form-require
+                必須
+              .form-signup__select
+                .form-signup__select__month
+                  = f.select :month,['01','02','03','04','05','06','07','08','09','10','11','12'],{},class: 'form-signup__select__month__default'
+                  %span
+                    月
+                .form-signup__select__year
+                  = f.select :year,['20','21','22','23','24','25','26','27','28','29','30'],{},class: 'form-signup__select__year__default'
+                  %span
+                    年
+            .form-security
+              = f.label 'セキュリティコード',class: 'form-security__code'
+              %span.form-require
+                必須
+              = f.text_field :content,class: 'form-security__input-code',placeholder: 'カード背面4桁もしくは3桁の番号'
+            = f.submit '登録する',class: 'form-btn'
+  //footer部分
+  = render "layouts/item-footer"
