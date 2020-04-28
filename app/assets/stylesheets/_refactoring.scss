@@ -1,0 +1,89 @@
+//色
+$white : #ffffff;
+$silver : #cccccc;
+$red : #ea352d;
+$yewh : #f8f8f8;
+
+//必須項目のlavel用
+@mixin need{
+  background-color: $red;
+  margin-left: 8px;
+  padding: 4px 4px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 12px;
+}
+
+//選択式フォーム専用
+@mixin select{
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid $silver;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+//入力フォーム専用
+@mixin input{
+  width: 100%;
+  margin-top: 8px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $silver;
+  background: $white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+//登録ボタン専用
+@mixin submit{
+  height: 48px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: $red;
+  border: 1px solid $red;
+  color: $white;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+
+//bodyのhead専用
+@mixin h3{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+//カードと配達情報に遷移するためのlink
+@mixin link{
+  text-decoration: none;
+  color: #0099e8;
+}
+
+//入力フォームの各項目のラベル
+@mixin label{
+  display: inline;
+  font-weight: 600;
+}
+
+//bodyの中にあるhead用
+@mixin mainhead{
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 32px;
+}
+
+//任意項目のlavel用
+@mixin any{
+  background-color: $silver;
+  margin-left: 8px;
+  padding: 4px 4px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 12px;
+}

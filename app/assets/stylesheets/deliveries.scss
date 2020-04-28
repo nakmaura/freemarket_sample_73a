@@ -1,0 +1,68 @@
+.content{
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: $yewh;
+  margin: 0;
+  padding: 0;
+  .content-delivery{
+    width: 100%;
+    margin-bottom: 50px;
+    &__input{
+    width: 700px;
+    margin: auto;
+    background-color:$white;
+    .content-delivery__input__head{
+      @include mainhead;
+      }
+    .form{
+      margin: auto;
+      max-width: 343px;
+      .form-group{
+        margin: 40px 0 0;
+          &__label{
+            @include label;
+          }
+          .form-require{
+            @include need;
+          }
+          .form-any{
+            @include any;
+          }
+          &__family{
+            @include input;
+          }
+          &__first{
+            @include input;
+          }
+          &__family-kana{
+            @include input;
+          }
+          &__first-kana{
+            @include input;
+          }
+          &__prefecture-select{
+            @include select;
+            width: 100%;
+            margin-top: 8px;
+          }
+          &__city{
+            @include input;
+          }
+          &__number{
+            @include input;
+          }
+          &__building{
+            @include input;
+          }
+          &__phone-number{
+            @include input;
+          }
+        }
+        .form-btn{
+          @include submit;
+        }
+      }
+    }
+  }
+}

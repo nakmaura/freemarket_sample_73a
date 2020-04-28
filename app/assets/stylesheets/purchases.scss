@@ -1,0 +1,117 @@
+.content{
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: $yewh;
+  margin: 0;
+  padding: 0;
+  .content-main{
+    width: 100%;
+    margin-bottom: 50px;
+    &__buy{
+    width: 700px;
+    margin: auto;
+    background-color:$white;
+    .content-main__buy__head{
+      @include mainhead;
+      }
+    .content-main__buy__item{
+      text-align: center;
+      padding: 24px 16px;
+      &__inner{
+        max-width: 343px;
+        margin: auto;
+        &__box{
+          display: flex;
+          &__image{
+          height: 80px;
+          width: 80px;
+          }
+          &__detail{
+            margin-left: 18px;
+            .item-name{
+              font-size: 14px;
+              text-align: left;
+              padding: 0 0 8px;
+              line-height: 1.5;
+            }
+            .item-buy{
+              text-align: left;
+              font-size: 15px;
+              font-weight: 600;
+              &__fee{
+                font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .content-main__buy__item__detail{
+        padding-bottom: 48px;
+        &__inner{
+          max-width: 343px;
+          margin: auto;
+          .price-cell{
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            &__list{
+              font-size: 24px;
+              &__label{
+                display: table-cell;
+                text-align: left;
+                padding-right: 150px;
+                font-size: 18px;
+                font-weight: 600;
+              }
+              &__price{
+                display: table-cell;
+                text-align: right;
+                &__data{
+                  font-size: 18px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+          .buy-pay-info{
+            height: auto;
+            margin-top: 100px;
+            padding: 50px 0;
+            text-align: left;
+            &__inner{
+              max-width: 343px;
+              margin: auto;
+              h3{
+                @include h3;
+              }
+              a{
+                @include link;
+              }
+            }
+          }
+          .buy-delivery-info{
+            padding: 50px 0;
+            &__inner{
+              max-width: 343px;
+              margin: auto;
+            }
+          }
+          .form-btn{
+            height: auto;
+            margin: 50px 0;
+            width: 100%;
+            background-color: #888888;
+            cursor: pointer;
+            color: $white;
+            font-size: 14px;
+            line-height: 48px;
+            font-weight: 600;
+            
+          }
+        }
+      }
+    }
+  }
+}
