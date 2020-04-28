@@ -1,0 +1,50 @@
+.content
+  //header部分
+  = render "layouts/item-header"
+  //body部分
+  .content-main
+    .content-main__buy
+      //bodyのheader部分
+      %h2.content-main__buy__head
+        購入内容の確認
+      //商品の画像と値段
+      .content-main__buy__item
+        .content-main__buy__item__inner
+          .content-main__buy__item__inner__box
+            %h3.content-main__buy__item__inner__box__image
+              = image_tag 'https://static.mercdn.net/thumb/photos/m50753128973_1.jpg?1569347049',size: "60x80"
+            .content-main__buy__item__inner__box__detail
+              %p.item-name
+                トップス
+              %p.item-buy
+                %span.item-buy__price
+                  ¥3,300
+                %span.item_buy__fee
+                  （税込）送料込み
+      //商品購入フォーラム
+      .content-main__buy__item__detail
+        .content-main__buy__item__detail__inner
+          = form_with local:true do |f|
+            %ul.price-cell
+              %li.praice-cell__list
+                .price-cell__list__label
+                  支払い金額
+                .price-cell__list__price
+                  %span.price-cell__list__price__data
+                    ¥3,300
+            .buy-pay-info
+              .buy-pay-info__inner
+                %h3
+                  支払い方法
+                = link_to new_card_path do
+                  ＋登録してください
+            .buy-delivery-info
+              .buy-pay-info__inner
+                %h3
+                  配送先
+                = link_to new_delivery_path do
+                  ＋登録してください
+            = f.submit '購入する',class: 'form-btn'
+
+  //footer部分
+  = render "layouts/item-footer"
