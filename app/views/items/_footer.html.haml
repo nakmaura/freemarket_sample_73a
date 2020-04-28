@@ -1,3 +1,14 @@
+%aside.appbanner
+  .appbanner__inner
+    .appbanner__inner-title
+      だれでもかんたん、人生を変えるフリマアプリ
+      .appbanner__inner-text
+        今すぐ無料ダウンロード！
+    .appbanner__inner-icon
+      = link_to root_path,class:'aBtn' do
+        = image_tag "download-on-the-app-store-apple.svg", size: "180x53", alt: "test1"
+      = link_to root_path,class:'aBtn' do
+        = image_tag "google-play-badge.svg", size: "180x53", alt: "test1"
 .footer
   %ul.footer__contents
     %li.footer__content
