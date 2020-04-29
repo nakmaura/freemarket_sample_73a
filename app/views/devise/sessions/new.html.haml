@@ -1,0 +1,43 @@
+.single-container
+  //header部分
+  = render "layouts/item-header"
+  .l-single-main
+    .l-single-main__login-panel
+      .l-single-main__login-panel__login-no-account
+        %p アカウントをお持ちでない方はこちら
+        =link_to "新規会員登録", "#"
+      .l-single-main__login-panel__login-form-inner
+        .form-group-login
+          %input.form-group-login__login-input{placeholder: "メールアドレス", type: "email", name: "email"}
+        .form-group-login
+          %input.form-group-login__login-input{placeholder: "パスワード", type: "password", name: "password"}
+        .form-group-login
+          .form-group-login__recaptcha
+            .form-group-login__recaptcha__size{style: "width: 304px; height: 78px;"}
+              .rc-anchor-container
+                .rc-anchor-container__content
+                  .rc-anchor-container__content__inline-block
+                    .rc-anchor-container__content__inline-block__conter-container
+                      .rc-anchor-container__content__inline-block__conter-container__checkbox-holder
+                        %span.rc-anchor-container__content__inline-block__conter-container__checkbox-holder__recaptcha-checkbox{role: "checkbox", aria_checked: "false", tabindex: "0", dir: "ltr", aria_labelledby: "recaptcha-anchor-label"}
+                          .rc-anchor-container__content__inline-block__conter-container__checkbox-holder__recaptcha-checkbox__border{role: "presentation"}
+                          .rc-anchor-container__content__inline-block__conter-container__checkbox-holder__recaptcha-checkbox__borderAnimation{role: "presentation"}
+                          .rc-anchor-container__content__inline-block__conter-container__checkbox-holder__recaptcha-checkbox__spinner{role: "presentation"}
+                  .rc-anchor-container__content__inline-block
+                    .rc-anchor-container__content__inline-block__conter-container
+                      %label.rc-anchor-container__content__inline-block__conter-container__checkbox-label{aria_hidden: "true", role: "presentation"}
+                        %span{aria_live: "polite", aria_labelleby: "recaptcha_accessible_status"} 私はロボットではありません
+                .rc-anchor-container__normal-footer
+                  .rc-anchor-container__normal-footer__logo{aria_hidden: "true", role: "presentation"}
+                    .rc-anchor-container__normal-footer__logo__img
+                      = image_tag "reCAPTCHA.png", width: "32px", height: "32px", alt: "test1"
+                    .rc-anchor-container__normal-footer__logo__text reCAPTCHA
+                  .rc-anchor-container__normal-footer__pt
+                    =link_to "プライバシー", "#", target:"_blank"
+                    %span{aria_hidden: "true", role: "presentation"} -
+                    =link_to "利用規約", "#", target:"_blank"
+
+        %button.l-single-main__login-panel__login-form-inner__login-submit{type: "submit"} ログイン
+        =link_to "パスワードをお忘れの方", "#", class: "password-forgot"
+  //footer部分
+  = render "layouts/item-footer" 
