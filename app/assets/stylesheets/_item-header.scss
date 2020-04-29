@@ -7,20 +7,5 @@
     width: 200px;
     height: 100px;
     padding-top: 45px;
-    margin-left: 500px;
-  }
-  &__btn{
-    display: inline;
-    float: right;
-    padding-top: 15px;
-    padding-right: 250px;
-    .sign-up{
-      @include a;
-      @include btn;
-    }
-    .login{
-      @include a;
-      @include btn;
-    }
   }
 }

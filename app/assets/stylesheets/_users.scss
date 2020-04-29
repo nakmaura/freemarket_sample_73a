@@ -1,0 +1,365 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+.single-container {
+  min-width: 768px;
+}
+
+.single-main {
+  width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  h2 {
+    padding: 16px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .new_user {
+    padding: 40px 40px 64px;
+    border-top: 1px solid #f5f5f5;
+  }
+  &__container {
+    max-width: 343px;
+    margin: 0 auto;
+  }
+  // ニックネーム
+  .form-group:first-child {
+    margin: 0;
+  }
+  // メールアドレス〜生年月日
+  .form-group{
+    margin-top: 32px;
+    & label{
+      font-weight: 600;
+    }
+  // 必須
+    &__require{
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  // 入力フォーム
+    &__input {
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      box-sizing: border-box;
+    // 名前入力フォーム
+      &--half {
+        width: calc(50% - 6px);
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+    }
+    // ※ 英字と数字の両方を含めて設定してください
+    &__info {
+    margin: 8px 0 0;
+    line-height: 1.5;
+    color: #888;
+    }
+    // パスワードを表示する
+    .checkbox-default {
+      margin: 16px 0 0;
+      & label {
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+    .select-wrap {
+      width: 76px;
+      margin: 8px 0 0;
+      display: inline-block;
+      // アイコン矢印
+      &__icon-arrow-bottom {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 8px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
+      &__default {
+        width: 100%;
+        padding: 0 10px;
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+      span {
+        margin: 0 2px;
+      }
+    }
+    a {
+      color: #0099e8;
+      text-decoration: none;
+    }
+    &__text-center {
+      text-align: center;
+    }
+    // 次へ進む
+    .btn-default {
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      margin-top: 32px;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      -webkit-transition: all ease-out .3s;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+    // 本人情報の登録について
+    &__text-right {
+      margin-top: 32px;
+      text-align: right;
+    }
+    // This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+    &__recaptcha_term {
+      margin-top: 32px;
+      background-color: #f5f5f5;
+      padding: 8px 16px;
+      color: #888888;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+  .form-info-text {
+    color: #888;
+    margin: 8px 0 0;
+  }
+}
+// ログイン画面
+.l-single-main {
+  display: block;
+  &__login-panel {
+    max-width: none;
+    width: 456px;
+    margin: 0 auto;
+    background-color: #fff;
+    // padding-bottom: 80px;
+    &__login-no-account {
+      padding: 40px 64px;
+      text-align: center;
+      // アカウントをお持ちでない方はこちら
+      p {font-size: 14px;}
+      // 新規会員登録
+      a {display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;}
+    }
+    &__login-form-inner {
+      padding: 24px 64px 32px;
+      border-top: 1px solid #eee;
+      // メールアドレス ・パスワード部分
+      .form-group-login {
+        margin: 40px 0 0;
+        // reCAPTCHA部分
+        &__recaptcha {
+          transform: none;
+        }
+        .rc-anchor-container {
+          height: 74px;
+          width: 328px;
+          border: 1px solid #d3d3d3;
+          background: #f9f9f9;
+          color: #000;
+          border-radius: 3px;
+          &__content {
+            height: 74px;
+            width: 206px;
+            display: inline-block;
+            &__inline-block {
+              display: inline-block;
+              height: 100%;
+              float: left;
+              &__conter-container {
+                display: table;
+                height: 100%;
+                &__checkbox-holder {
+                  display: table-cell;
+                  vertical-align: middle;
+                  &__recaptcha-checkbox {
+                    margin: 0 12px 2px 12px;
+                    border: none;
+                    font-size: 1px;
+                    height: 28px;
+                    width: 28px;
+                    overflow: visible;
+                    outline: 0;
+                    vertical-align: text-bottom;
+                    position: relative;
+                    display: inline-block;
+                    &__border {
+                      border-radius: 2px;
+                      background-color: #fff;
+                      border: 2px solid #c1c1c1;
+                      font-size: 1px;
+                      height: 24px;
+                      position: absolute;
+                      width: 24px;
+                      z-index: 1;
+                    }
+                    &__borderAnimation {
+                      // background-image: url() ←アニメーションのURLを入れる;
+                      background-repeat: no-repeat;
+                      border: none;
+                      height: 28px;
+                      outline: 0;
+                      position: absolute;
+                      width: 28px;
+                    }
+                    &__spinner {
+                      background-color: #f9f9f9;
+                      border: 6px solid #4d90fe;
+                      border-radius: 36px;
+                      border-bottom-color: transparent;
+                      border-left-color: transparent;
+                      height: 36px;
+                      left: -4px;
+                      outline: 0;
+                      position: absolute;
+                      top: -4px;
+                      width: 36px;
+                      box-sizing: border-box;
+                      opacity: 0;
+                      animation: spinner-spin linear 2.5s infinite;
+                      animation-play-state: paused;
+                      transition-duration: 1s;
+                    }
+                  }
+                }
+                &__checkbox-label {
+                  width: 152px;
+                  font-family: Roboto,helvetica,arial,sans-serif;
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 17px;
+                  display: table-cell;
+                  vertical-align: middle;
+                  color: #000;
+                }
+              }
+            }
+          }
+          &__normal-footer {
+            display: inline-block;
+            height: 74px;
+            vertical-align: top;
+            width: 70px;
+            margin-right: 7px;
+            &__logo {
+              margin: 10px 0 0 26px;
+              width: 58px;
+              &__img {
+                background-size: 32px;
+                height: 32px;
+                margin: 0 13px 0 13px;
+                width: 32px;
+              }
+              &__text {
+                cursor: default;
+                color: #555;
+                font-family: Roboto,helvetica,arial,sans-serif;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 10px;
+                margin-top: 5px;
+                text-align: center;
+              }
+            }
+            &__pt {
+              margin: 2px 20px 0 0;
+              position: absolute;
+              font-family: Roboto,helvetica,arial,sans-serif;
+              font-size: 8px;
+              font-weight: 400;
+              a{color: #555;
+                text-decoration: none;}
+              span{text-align: right;}
+            }
+          }
+        }
+      }
+      // メールアドレス・パスワード入力フォーム
+      input {
+        margin: 0;
+        width: 100%;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      // ログイン
+      &__login-submit {
+        margin: 24px 0 0;
+        background: #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+      // パスワードをお忘れの方
+      .password-forgot {
+        display: block;
+        margin: 40px 0 0;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+}
