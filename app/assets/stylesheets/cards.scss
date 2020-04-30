@@ -5,78 +5,78 @@
   background-color: $yewh;
   margin: 0;
   padding: 0;
-  .content-card{
-    width: 100%;
-    margin-bottom: 50px;
-    .form-require{
-      @include need;
-    }  
-    &__input{
-    width: 700px;
-    margin: auto;
-    background-color:$white;
-    .content-card__input__head{
-      @include mainhead;
-      }
-    .content-card__input__form{
-      padding: 24px,16px,40px;
-      &__inner{
-        max-width: 343px;
-        margin: auto;
-        .form-group{
-          margin: 40px 0 0;
-            &__card-number{
-              @include label;
+}
+.content-card{
+  width: 100%;
+  margin-bottom: 50px;
+  .form-require{
+    @include need;
+  }  
+  &__input{
+  width: 700px;
+  margin: auto;
+  background-color:$white;
+  .content-card__input__head{
+    @include mainhead;
+    }
+  .content-card__input__form{
+    padding: 24px,16px,40px;
+    &__inner{
+      max-width: 343px;
+      margin: auto;
+      .form-group{
+        margin: 40px 0 0;
+          &__card-number{
+            @include label;
+          }
+          &__input-number{
+            @include input;
+          }
+          .signup-card-list{
+            list-style: none;
+            margin: 8px 0 0;
+            li{
+              margin-left: 8px;
+              display: inline;
             }
-            &__input-number{
-              @include input;
+          }
+        }
+        .form-signup{
+          margin-top: 24px;
+          &__expire{
+            @include label;
+          }
+          &__select{
+            margin-top: 8px;
+            margin-bottom: 24px;
+            display: flex;
+            span{
+              margin: 0 5px;
             }
-            .signup-card-list{
-              list-style: none;
-              margin: 8px 0 0;
-              li{
-                margin-left: 8px;
-                display: inline;
+            &__month{
+              &__default{
+                @include select;
+                width: 130px;
+              }
+            }
+            &__year{
+              &__default{
+                @include select;
+                width: 130px;
               }
             }
           }
-          .form-signup{
-            margin-top: 24px;
-            &__expire{
-              @include label;
-            }
-            &__select{
-              margin-top: 8px;
-              margin-bottom: 24px;
-              display: flex;
-              span{
-                margin: 0 5px;
-              }
-              &__month{
-                &__default{
-                  @include select;
-                  width: 130px;
-                }
-              }
-              &__year{
-                &__default{
-                  @include select;
-                  width: 130px;
-                }
-              }
-            }
+        }
+        .form-security{
+          &__code{
+            @include label;
           }
-          .form-security{
-            &__code{
-              @include label;
-            }
-            &__input-code{
-              @include input;
-            }
+          &__input-code{
+            @include input;
           }
-          .form-btn{
-            @include submit;
-          }
+        }
+        .form-btn{
+          @include submit;
         }
       }
     }

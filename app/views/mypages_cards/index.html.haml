@@ -1,0 +1,18 @@
+.mypage-content
+  .my-header
+    = render 'items/headder'
+  .my-tag
+    = render 'layouts/tag'
+  .my-content
+    = render 'layouts/sidebar'
+    .main-bar
+      .credit-content
+        %h2.credit-content__header
+          支払い方法
+        = form_with local:true do |f|
+          .credit-form
+            = f.label 'クレジットカード一覧',class:'credit-label'
+            = link_to new_mypages_card_path do
+              = f.submit 'クレジットカードを追加する',class:'credit-btn'
+  .my-footer
+    = render 'items/footer'

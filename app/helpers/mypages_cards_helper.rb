@@ -1,0 +1,2 @@
+module MypagesCardsHelper
+end

@@ -1,0 +1,14 @@
+.logout-content{
+  margin-left: 50px;
+  width: 700px;
+  background-color: $white;
+  margin: auto;
+  .logout-form{
+    width: 320px;
+    margin: auto;
+    .logout-btn{
+    @include a;
+    @include submit;
+    }
+  }
+}

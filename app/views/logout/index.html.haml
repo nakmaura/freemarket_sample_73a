@@ -1,0 +1,15 @@
+.mypage-content
+  .my-header
+    = render 'items/headder'
+  .my-tag
+    = render 'layouts/tag'
+  .my-content
+    = render 'layouts/sidebar'
+    .main-bar
+      .logout-content
+        = form_with local:true do |f|
+          .logout-form
+            = link_to '#' do
+              = f.submit 'ログアウト',class:'logout-btn'
+  .my-footer
+    = render 'items/footer'
