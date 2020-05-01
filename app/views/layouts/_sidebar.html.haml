@@ -1,0 +1,18 @@
+.side-bar
+  %ul.side-bar__my
+    = link_to 'http://localhost:3000/users/show',class: 'nav-item'do
+      %li.side-bar__my__list
+        マイページ
+        %i.fas.fa-chevron-right
+    %h3.setting
+      設定
+    = link_to mypages_cards_path,class: 'nav-item'do
+      %li.side-bar__my__list
+        支払い方法
+        %i.fas.fa-chevron-right
+    = link_to logout_index_path,class: 'nav-item'do
+      %li.side-bar__my__list
+        ログアウト
+        %i.fas.fa-chevron-right
+
+
