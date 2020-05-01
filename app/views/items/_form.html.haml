@@ -1,0 +1,10 @@
+= form_for @item do |f| 
+  = f.text_field :name 
+  %br
+    価格
+  = f.number_field :price 
+  %br
+  = f.fields_for :images do |i| 
+    = i.file_field :url
+    %br
+  = f.submit 
