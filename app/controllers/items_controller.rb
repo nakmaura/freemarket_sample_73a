@@ -1,10 +1,5 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:images).order('created_at DESC')
-  end
-
-  def show
-    
   end
 
   def new
@@ -13,16 +8,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    # Item.new(item_params)
-    if @item.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    binding.pry
+    Item.create(item_params)
   end
 
   def edit
+  end
+
+  def show
+
   end
 
   def update
@@ -34,7 +28,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: [:url])
-    # params.require(:item).permit(:name, :price,:url)
+    params.require(:item).permit(:name,:price,:introduction,images_attributes:{url: []})
   end
 end
