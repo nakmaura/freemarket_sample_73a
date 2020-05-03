@@ -1,12 +1,10 @@
-
 .sell
   %header.sell-header
   = render "layouts/item-header"
 
   %main.sell-main
     %section.sell-container
-      = form_with model: @item do |f|
-        
+      = form_with model: @item,local: true do |f|
         -# 出品画像
         .sell-container__content
           .sell-title
@@ -20,11 +18,16 @@
               .sell-container__content__upload__items__box
                 %ul#output-box
                   %div#image-input{tabindex:"0"}
-                    = f.label :images, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
-                      = f.file_field :images, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
-                      %pre
+                    = f.fields_for :images, class: 'sell-container__content__upload__items__box__label' do |i| 
+                      = i.file_field :url,multiple:true,class: "sell-container__content__upload__items__box__input"
+                      %br
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
+                    -# = f.label :images, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
+                    -#   = f.file_field :images, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
+                    -#   %pre
+                    -#     ドラッグアンドドロップ
+                    -#     またはクリックしてファイルをアップロード
           .error-messages#error-image
 
         -#商品名
@@ -36,13 +39,12 @@
                 必須
           = f.text_field :name, {class:'sell-container__content__name', required: "required", placeholder: '40文字まで'}
           .error-messages#error-name
-
           .sell-title
             %h3.sell-title__text
               商品の説明
               %span.sell-title__require
                 必須
-          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明（必須 1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe}
+          = f.text_area :introduction,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明（必須 1,000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe}
           .sell-container__content__word-count
             %span#word-count
               0
@@ -70,7 +72,7 @@
                 ブランド
                 %span.sell-title__any
                   任意
-            = f.text_field :name, {class:'sell-container__content__name', placeholder: '例）シャネル'} 
+            = f.text_field :bland, {class:'sell-container__content__name', placeholder: '例）シャネル'} 
             .error-messages#error-cat
             
             .sell-title
@@ -80,7 +82,8 @@
                   必須
             .sell-collection_select
               = f.label :condition_id, {class: 'sell-collection_select__label'} do
-                = f.select :condition,['選択してください','新品、未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{},class: 'sell-collection_select__pulldown'
+                = f.collection_select :condition_id, Condition_id.all, :id, :name
+                -# = f.select :condition,['選択してください','新品、未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{},class: 'sell-collection_select__pulldown'
                 -# 上記はactive_hash適応後下記に書き換え
                 -# = f.collection_select :condition_id, Condition.all, :id, :condition, {prompt: '選択して下さい'},{ class: 'sell-collection_select__input', id: 'condition-select', required: "required"}
             .error-messages#error-condition
@@ -97,7 +100,8 @@
                   必須
             .sell-collection_select
               = f.label :deliverycost_id, {class: 'sell-collection_select__label'} do
-                = f.select :condition,['選択してください','送料込み（出品者負担）','着払い（購入者負担）'],{},class: 'sell-collection_select__pulldown'
+                = f.collection_select :postage_peyer_id, Postage_payer.all, :id, :name
+                -# = f.select :condition,['選択してください','送料込み（出品者負担）','着払い（購入者負担）'],{},class: 'sell-collection_select__pulldown'
                 -# 上記はactive_hash適応後下記に書き換え
                 -# = f.collection_select :deliverycost_id, Deliverycost.all, :id, :payer, {prompt: '選択して下さい'},{ class: 'sell-collection_select__input', id: 'deliverycost-select', required: "required"}
             .error-messages#error-deliverycost
@@ -109,7 +113,8 @@
                   必須
             .sell-collection_select
               = f.label :pref_id, class: 'sell-collection_select__label' do
-                = f.select :condition,['選択してください','栃木県','茨城県','群馬県','埼玉県','千葉県','東京都','神奈川県'],{},class: 'sell-collection_select__pulldown'
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                -# = f.select :condition,['選択してください','栃木県','茨城県','群馬県','埼玉県','千葉県','東京都','神奈川県'],{},class: 'sell-collection_select__pulldown'
                 -# 上記はactive_hash適応後下記に書き換え
                 -# = f.collection_select :pref_id, Pref.all, :id, :name, {prompt: '選択して下さい'},{ class: 'sell-collection_select__input', id: 'pref-select', required: "required"}
             .error-messages#error-pref
@@ -121,7 +126,8 @@
                   必須
             .sell-collection_select
               = f.label :delivery_days_id, class: 'sell-collection_select__label' do
-                = f.select :condition,['選択してください','1~2日で発送','2~4日で発送','4~7日で発送'],{},class: 'sell-collection_select__pulldown'
+                = f.collection_select :preparation_day_id, Preparation_day.all, :id, :name
+                -# = f.select :condition,['選択してください','1~2日で発送','2~4日で発送','4~7日で発送'],{},class: 'sell-collection_select__pulldown'
                 -# 上記はactive_hash適応後下記に書き換え
                 -# = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :days, {prompt: '選択して下さい'},{ class: 'sell-collection_select__input', id: 'delivery_days-select', required: "required"}
             .error-messages#error-delivery_days

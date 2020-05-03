@@ -43,7 +43,7 @@ Things you may want to cover:
 - has_many :favorites
 - has_many :comments
 
-##item_imagesテーブル
+##imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|reference|null: false, foreign_key: true|
