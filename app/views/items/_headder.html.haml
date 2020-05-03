@@ -21,8 +21,17 @@
         %li.headder__nav-listsleft-rightitem
           = link_to root_path,id:'catBtn' do
             ブランド
-      - if controller.controller_name == 'items'
-        %ul.headder__nav-listsright
+      %ul.headder__nav-listsright
+        -if user_signed_in?
+          %li.headder__nav-listsright-loginitem
+            = link_to destroy_user_session_path, method: :delete,id:'catBtn' do
+              ログアウト
+            %ul.headder__nav-listsright-brandsPulldown
+          %li.headder__nav-listsright-newitem
+            = link_to 'http://localhost:3000/users/show',id:'catBtn' do
+              マイページ
+              
+        -else
           %li.headder__nav-listsright-loginitem
             = link_to user_session_path,id:'catBtn' do
               ログイン
@@ -30,8 +39,19 @@
           %li.headder__nav-listsright-newitem
             = link_to new_user_registration_path,id:'catBtn' do
               新規会員登録
-      - else
-        %ul.headder__nav-listsright
-          %li.headder__nav-listsright-loginitem
-            = link_to 'http://localhost:3000/users/show',id:'catBtn' do
-              マイページ
+
+      -# 仮置き
+      -# - if controller.controller_name == 'items'
+      -#   %ul.headder__nav-listsright
+      -#     %li.headder__nav-listsright-loginitem
+      -#       = link_to user_session_path,id:'catBtn' do
+      -#         ログイン
+      -#       %ul.headder__nav-listsright-brandsPulldown
+      -#     %li.headder__nav-listsright-newitem
+      -#       = link_to new_user_registration_path,id:'catBtn' do
+      -#         新規会員登録
+      -# - else
+      -#   %ul.headder__nav-listsright
+      -#     %li.headder__nav-listsright-loginitem
+      -#       = link_to 'http://localhost:3000/users/show',id:'catBtn' do
+      -#         マイページ
