@@ -1,6 +1,6 @@
 .side-bar
   %ul.side-bar__my
-    = link_to 'http://localhost:3000/users/show',class: 'nav-item'do
+    = link_to user_path(current_user.id),class: 'nav-item'do
       %li.side-bar__my__list
         マイページ
         %i.fas.fa-chevron-right

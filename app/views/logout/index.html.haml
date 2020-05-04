@@ -9,7 +9,7 @@
       .logout-content
         = form_with local:true do |f|
           .logout-form
-            = link_to '#' do
+            = link_to destroy_user_session_path, method: :delete do
               = f.submit 'ログアウト',class:'logout-btn'
   .my-footer
     = render 'items/footer'
