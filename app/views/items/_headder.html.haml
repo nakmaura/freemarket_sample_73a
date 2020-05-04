@@ -28,7 +28,7 @@
               ログアウト
             %ul.headder__nav-listsright-brandsPulldown
           %li.headder__nav-listsright-newitem
-            = link_to 'http://localhost:3000/users/show',id:'catBtn' do
+            = link_to user_path(current_user.id),id:'catBtn' do
               マイページ
         -else
           %li.headder__nav-listsright-loginitem
