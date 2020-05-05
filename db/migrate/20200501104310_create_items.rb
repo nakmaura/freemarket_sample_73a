@@ -12,9 +12,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :seller_id
       t.string :buyer_id
       t.string :prefecture_name,null: false
-      t.string :condition
-      t.string :postage_payer
-      t.string :preparation_days
+      t.integer :condition_id,null: false
+      t.integer :postage_payer,null: false
+      t.integer :preparation_day,null: false
       t.timestamps
     end
   end

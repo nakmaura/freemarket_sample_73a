@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2020_05_03_103421) do
     t.string "seller_id"
     t.string "buyer_id"
     t.string "prefecture_name", null: false
-    t.string "condition"
-    t.string "postage_payer"
-    t.string "preparation_days"
+    t.integer "condition_id", null: false
+    t.integer "postage_payer", null: false
+    t.integer "preparation_day", null: false
   end
 
   create_table "postages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
