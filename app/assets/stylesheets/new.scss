@@ -41,6 +41,7 @@ img {
     line-height: 1.4em;
     margin: 0 0 0 8px;
   }
+
   &__any{
     margin-left: 8px;
     font-size: 12px;
@@ -163,21 +164,21 @@ img {
     background-color: #fff;
   }
   &__input{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #222;
-  font-size: 16px;
-  height: 48px;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 0 56px 0 16px;
-  width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 16px;
+    height: 48px;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 0 56px 0 16px;
+    width: 100%;
   }
 }
 // ここより上は繰り返し使用するパーツ
@@ -216,30 +217,34 @@ img {
       }
       &__upload{
         margin-top: 16px;
-        display: flex;
-        flex-wrap: wrap;
         &__items{
-          height: auto;
-          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          margin: -8px -4px 0px;
 
           &__box{
-            height: auto;
-            align-content: center;
-            align-items: center;
-            cursor: pointer;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            border-width: 1px;
+            height: 150px;
+            margin-top: 8px;
+            flex: 1 1 0%;
+            padding: 0px 4px;
 
             #output-box{
-              box-sizing: border-box;
+              align-content: center;
+              -webkit-box-align: center;
+              align-items: center;
+              background-color: rgb(245, 245, 245);
+              cursor: pointer;
               display: flex;
+              height: 100%;
               flex-wrap: wrap;
-              width: 100%;
-              height: auto;
-              padding-left: 0;
+              -webkit-box-pack: center;
+              justify-content: center;
+              position: relative;
+              border-width: 1px;
+              border-style: dashed;
+              border-color: rgb(204, 204, 204);
+              border-image: initial;
+              transition: all 0.5s ease-out 0s;
 
               .preview-image{
                 box-sizing: border-box;
@@ -271,29 +276,60 @@ img {
                   color: rgb(0, 149, 238);
                 }
               }
+              
 
               #image-input{
-                box-sizing: border-box;
+                // display: none;
                 height: 100%;
-                -webkit-flex: 1;
-                flex: 1;
-                margin-top: 8px;
+                width: 100%;
+                .js-file_group {
+                  fill: rgb(34, 34, 34);
+                  height: 100%;
+                  width: 100%; 
+                }
+                .label {
+                  height: 100%;
+                  width: 100%;
+                }
 
-                .sell-container__content__upload__items__box__label{
-                  box-sizing: border-box;
-                  background-color: rgb(245, 245, 245);
-                  height: 150px;
-                  border-width: 1px;
-                  border-style: dashed;
-                  border-color: rgb(204, 204, 204);
-                  text-align: center;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  i{
-                    box-sizing: border-box;
-                    margin-bottom: 8px;
+                  .fas.fa-camera {
+                    font-size: 20px;
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 7%;
+                    display: inline-block;
+                    .fas.fa-camera::before {
+                      margin-bottom: 10px;
+                    }
                   }
+                    .text{
+                      font-size: 12px;
+                      line-height: 1.4em;
+                      text-align: center;
+                      width: 100%;
+                      margin-top: 10px;
+                    }
+                  .sell-container__content__upload__items__box__input {
+                    box-sizing: border-box;
+                    display: none;
+                  }
+
+                  .sell-container__content__upload__items__box__label{
+                    box-sizing: border-box;
+                    background-color: rgb(245, 245, 245);
+                    height: 150px;
+                    border-width: 1px;
+                    border-style: dashed;
+                    border-color: rgb(204, 204, 204);
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    i{
+                      box-sizing: border-box;
+                      margin-bottom: 8px;
+                    }
                 }
               }
             }
@@ -438,4 +474,37 @@ img {
       }
     }
   }
+}
+
+
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 491px;
+}
+.item-num-2{
+  width: 363px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 106px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
 }
