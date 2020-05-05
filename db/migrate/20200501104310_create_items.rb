@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       # t.references :buyer, foreign_key: true
       t.string :seller_id
       t.string :buyer_id
-      t.string :prefecture_name,null: false
+      t.integer :prefecture_name,null: false
       t.integer :condition_id,null: false
       t.integer :postage_payer,null: false
       t.integer :preparation_day,null: false
