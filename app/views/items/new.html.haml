@@ -17,7 +17,7 @@
               .item-num-0#image-box__container
                 = f.fields_for :images do |i|
                   .input-area
-                    = i.file_field :url,multiple:true,style: "display:none", id:"img-file",class: "sell-container__content__upload__items__box__input",required: "required"
+                    = i.file_field :url,multiple:true,style: "display:none", id:"img-file",class: "sell-container__content__upload__items__box__input"
                     %label{for: "img-file"}
                       %i.fas.fa-camera
           .error-messages#error-image
