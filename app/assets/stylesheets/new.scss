@@ -41,37 +41,7 @@ img {
     line-height: 1.4em;
     margin: 0 0 0 8px;
   }
-  .item-num-0{
-    width: 100%;
-  }
-  .item-num-1{
-    width: 491px;
-  }
-  .item-num-2{
-    width: 363px;
-  }
-  .item-num-3{
-    width: 234px;
-  }
-  .item-num-4{
-    width: 106px;
-  }
-  //下段のfile_field
-  .item-num-5{
-    width: 100%;
-  }
-  .item-num-6{
-    width: 491px;
-  }
-  .item-num-7{
-    width: 363px;
-  }
-  .item-num-8{
-    width: 234px;
-  }
-  .item-num-9{
-    width: 106px;
-  }
+
   &__any{
     margin-left: 8px;
     font-size: 12px;
@@ -315,8 +285,7 @@ img {
                 .js-file_group {
                   fill: rgb(34, 34, 34);
                   height: 100%;
-                  width: 100%;
-                  
+                  width: 100%; 
                 }
                 .label {
                   height: 100%;
