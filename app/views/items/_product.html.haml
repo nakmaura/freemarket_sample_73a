@@ -1,0 +1,17 @@
+.main__pickupconteiner-productlist
+  = link_to "/" do
+    .main__pickupconteiner-productlist-img
+      - if product.images.present?
+        = image_tag "#{product.images[0].url}"
+    .main__pickupconteiner-productlist-body
+      %h3.main__pickupconteiner-productlist-name
+        = product.name
+      .main__pickupconteiner-productlist-details
+        %ul
+          %li
+            = product.price
+          %li
+            %i.fas.fa-star
+            0
+        %p
+          (税込)

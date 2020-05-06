@@ -98,56 +98,8 @@
           %h3.main__pickupconteiner-producttitle
             新規投稿商品
       .main__pickupconteiner-productlists
-        .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product3
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    30000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
-        .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product2
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    20000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
-        .main__pickupconteiner-productlist
-          - @items.each do |item|
-            = link_to "/items/#{item.id}" , method: :get do
-              .main__pickupconteiner-productlist-img
-                = image_tag "icon-03.png"
-              .main__pickupconteiner-productlist-body
-                %h3.main__pickupconteiner-productlist-name
-                  product1
-                .main__pickupconteiner-productlist-details
-                  %ul
-                    %li
-                      10000円
-                    %li
-                      %i.fas.fa-star
-                      0
-                  %p
-                    (税込)
-  %section.main__pickupconteiner-last
+        = render partial: 'product', collection: @newitems
+  %section.main__pickupconteiner
     %h2.main__pickupconteiner-head
       ピックアップブランド
     .main__pickupconteiner-productbox
@@ -156,52 +108,5 @@
           %h3.main__pickupconteiner-producttitle
             アーカイバ
       .main__pickupconteiner-productlists
-        .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product3
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    30000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
-        .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product2
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    20000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
-        .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product1
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
-= render "footer"
+        = render partial: 'product', collection: @blands
+  = render "footer"

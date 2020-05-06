@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_103421) do
     t.integer "price", null: false
     t.string "seller_id"
     t.string "buyer_id"
+    t.string "bland"
     t.integer "prefecture_name", null: false
     t.integer "condition_id", null: false
     t.integer "postage_payer", null: false

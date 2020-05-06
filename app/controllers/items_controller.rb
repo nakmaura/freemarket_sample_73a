@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
+    @newitems = Item.includes(:images).where(buyer_id: nil).order("created_at DESC").limit(3)
   end
 
   def new
@@ -39,6 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:price,:introduction,:prefecture_name,:condition_id,:postage_payer,:preparation_day,images_attributes: [:url]).merge(seller_id:current_user.id)
+    params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
+    :postage_payer,:preparation_day,images_attributes:[:url]).merge(seller_id:current_user.id)
   end
 end
