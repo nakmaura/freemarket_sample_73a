@@ -31,20 +31,25 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name product2
+          %h2.itemBox__name
+            = @item.name  
           .itemBox__body
             %ul
+              - @item.images.each do |image|
+                = image_tag image.url.url,class: "img_show"
               %li
-                = image_tag "test1.jpg", size: "560x346", alt: "test1"
-                %ul
-                  %li
-                    = image_tag "test1.jpg", size: "140x87", alt: "test1"
-                  %li
-                    = image_tag "test1.jpg", size: "140x87", alt: "test1"
-                  %li
-                    = image_tag "test1.jpg", size: "140x87", alt: "test1"
+
+                -# %ul
+                -#   %li
+                -#     = image_tag "test1.jpg", size: "140x87", alt: "test1"
+                -#   %li
+                -#     = image_tag "test1.jpg", size: "140x87", alt: "test1"
+                -#   %li
+                -#     = image_tag "test1.jpg", size: "140x87", alt: "test1"
           .itemBox__price
-            %span ¥20000
+            %span
+              ¥
+              = @item.price
             .itemBox__price-detail
               %span （税込）
               %span 送料込み    
@@ -54,7 +59,8 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td 
+                    = @item.seller.name
                 %tr
                   %th カテゴリー
                   %td
@@ -74,18 +80,20 @@
                   %td
                 %tr
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td 
+                    = @item.condition_id
                 %tr
                   %th 配送料の負担
-                  %td 着払い（購入者負担）
+                  %td 
+                    = @item.postage_payer
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "/" do
-                      青森県
+                    = @prefectures.find(@item.prefecture_name).name
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td 
+                    = @item.preparation_day
           .optionalArea
             %ul
               %li#likebtn.optionalBtn.likeBtn
@@ -94,6 +102,19 @@
               %li.optionalBtn
                 = link_to "/" do
                   %i.fa.fa-flag 不適切な商品の通報
+          .item_option
+            -if user_signed_in?
+              - if @item.seller.id == current_user.id
+                = link_to edit_item_path(@item), class:"item_edit", data: {turbolinks: false}  do
+                  商品を編集する
+                = link_to item_path(@item), method: "delete", class:"item_delete" do
+                  商品を削除する
+              - else
+                = link_to new_purchase_path, class:"item_purchase" do
+                  購入画面へ進む
+            - else
+              = link_to user_session_path, class:"item_purchase" do
+                購入画面へ進む
         .commentBox
           %ul.commentContents
           %form.new_comment{ action: "#", method: "post"} 

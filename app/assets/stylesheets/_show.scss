@@ -166,6 +166,8 @@ body{
           ul{
             display: flex;
             position: relative;
+            text-align: center;
+            display: block;
             li{
               display: flex;
               flex-direction: column;
@@ -279,6 +281,16 @@ body{
           }
         }
       }
+      .item_option {
+      margin-top: 10px;
+      padding: 20px;
+      background-color: red;
+      text-align: center;
+      .item_purchase {
+        color: black;
+        text-decoration: none;
+        }
+      } 
     .commentBox{
       padding: 24px;
       background-color: #fff;

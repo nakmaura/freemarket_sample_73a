@@ -1,16 +1,21 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
     @newitems = Item.includes(:images).where(buyer_id: nil).order("created_at DESC").limit(3)
   end
 
   def new
-    @item = Item.new
-    @item.images.new
+    if user_signed_in?
+      @item = Item.new
+      @item.images.build
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params) 
     if @item.save
       redirect_to root_path
     else 
@@ -22,6 +27,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @prefectures = Prefecture.all
 
   end
 

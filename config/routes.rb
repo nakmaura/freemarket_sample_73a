@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post 'destinations', to: 'users/registrations#create_destination'
   end
   root 'items#index'
-  resources :items
+  resources :items,only:[:index,:new,:create,:show,:edit]
   resources :purchases,only:[:new]
   resources :cards,only:[:new,:create]
   resources :mypages_cards,only:[:index,:new]
