@@ -23,7 +23,9 @@
     %li
       %i.fa.fa-angle-right
     %li
-      %p product2
+      %p
+      = link_to item_path(@item.id) do
+        = @item.name
 
 .main
   .showMain
