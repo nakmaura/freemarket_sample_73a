@@ -1,14 +1,19 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
-    @item = Item.new
-    @item.images.new
+    if user_signed_in?
+      @item = Item.new
+      @item.images.build
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params) 
     if @item.save
       redirect_to root_path
     else 
@@ -20,6 +25,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @prefectures = Prefecture.all
 
   end
 
@@ -32,6 +39,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:price,:introduction,:prefecture_name,:condition_id,:postage_payer,:preparation_day,images_attributes:{url:[]}).merge(seller_id:current_user.id)
+    params.require(:item).permit(:name,:price,:introduction,:prefecture_name,:condition_id,:postage_payer,:preparation_day,images_attributes: [:url]).merge(seller_id:current_user.id)
   end
 end

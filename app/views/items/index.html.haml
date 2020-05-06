@@ -131,21 +131,22 @@
                 %p
                   (税込)
         .main__pickupconteiner-productlist
-          = link_to "/" do
-            .main__pickupconteiner-productlist-img
-              = image_tag "icon-03.png"
-            .main__pickupconteiner-productlist-body
-              %h3.main__pickupconteiner-productlist-name
-                product1
-              .main__pickupconteiner-productlist-details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    %i.fas.fa-star
-                    0
-                %p
-                  (税込)
+          - @items.each do |item|
+            = link_to "/items/#{item.id}" , method: :get do
+              .main__pickupconteiner-productlist-img
+                = image_tag "icon-03.png"
+              .main__pickupconteiner-productlist-body
+                %h3.main__pickupconteiner-productlist-name
+                  product1
+                .main__pickupconteiner-productlist-details
+                  %ul
+                    %li
+                      10000円
+                    %li
+                      %i.fas.fa-star
+                      0
+                  %p
+                    (税込)
   %section.main__pickupconteiner-last
     %h2.main__pickupconteiner-head
       ピックアップブランド
