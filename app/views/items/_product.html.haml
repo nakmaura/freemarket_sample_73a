@@ -2,7 +2,7 @@
   = link_to "/" do
     .main__pickupconteiner-productlist-img
       - if product.images.present?
-        = image_tag "#{product.images[0]}"
+        = image_tag "#{product.images[0].url}"
     .main__pickupconteiner-productlist-body
       %h3.main__pickupconteiner-productlist-name
         = product.name

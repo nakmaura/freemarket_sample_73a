@@ -97,8 +97,9 @@
         = link_to "/" do
           %h3.main__pickupconteiner-producttitle
             新規投稿商品
-      = render partial: 'product', collection: @newitems
-  %section.main__pickupconteiner-last
+      .main__pickupconteiner-productlists
+        = render partial: 'product', collection: @newitems
+  %section.main__pickupconteiner
     %h2.main__pickupconteiner-head
       ピックアップブランド
     .main__pickupconteiner-productbox
