@@ -54,10 +54,11 @@
           = f.label :生年月日
           %span.form-group__require 必須
           %br/
-          = f.date_select :birthday_date, autofocus: true, autocomplete: "birthday_date", start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2000, 1, 1), class:"elect-wrap__default"
-          .birthday-select-wrap
-            .select-wrap
-              %i.select-wrap__icon-arrow-bottom
+          .form-group__birthday
+            = f.date_select :birthday_date, autofocus: true, autocomplete: "birthday_date", start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(2000, 1, 1), class:"elect-wrap__default"
+            .birthday-select-wrap
+              .select-wrap
+                %i.select-wrap__icon-arrow-bottom
         %p.form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .form-group
           %p.form-group__text-center

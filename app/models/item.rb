@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User",optional: true
   belongs_to :buyer, class_name: "User",optional: true
 
+  validates :images, presence: true
   validates :name,presence: true, length: {maximum: 40}
   validates :introduction,presence: true, length: {maximum: 1000}
   validates :price, presence: true,inclusion: {in: 300..9999999}

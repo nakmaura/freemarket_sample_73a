@@ -47,6 +47,11 @@
           width: 100%;
           margin-top: 8px;
         }
+        &__post_code{
+          @include select;
+          width: 100%;
+          margin-top: 8px;
+        }
         &__city{
           @include input;
         }
@@ -64,5 +69,22 @@
         @include submit;
       }
     }
+  }
+}
+
+.form-group__birthday{
+  width: 100%;
+  margin-top: 8px;
+  #user_birthday_date_1i{
+    @include select;
+    width: 30%;
+  }
+  #user_birthday_date_2i{
+    @include select;
+    width: 37%;
+  }
+  #user_birthday_date_3i{
+    @include select;
+    width: 30%;
   }
 }

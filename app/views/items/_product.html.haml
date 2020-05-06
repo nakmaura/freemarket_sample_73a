@@ -1,5 +1,5 @@
 .main__pickupconteiner-productlist
-  = link_to "/" do
+  = link_to item_path(product.id) do
     .main__pickupconteiner-productlist-img
       - if product.images.present?
         = image_tag "#{product.images[0].url}"
