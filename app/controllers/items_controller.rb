@@ -28,14 +28,16 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @prefectures = Prefecture.all
-
   end
 
   def update
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
   end
+
 
   private
 
