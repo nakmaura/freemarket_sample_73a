@@ -12,18 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_05_03_103421) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "condition_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -57,17 +45,11 @@ ActiveRecord::Schema.define(version: 2020_05_03_103421) do
     t.integer "price", null: false
     t.string "seller_id"
     t.string "buyer_id"
+    t.string "bland"
     t.integer "prefecture_name", null: false
     t.integer "condition_id", null: false
     t.integer "postage_payer", null: false
     t.integer "preparation_day", null: false
-  end
-
-  create_table "postages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postage_payer"
-    t.string "preparation_days"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
