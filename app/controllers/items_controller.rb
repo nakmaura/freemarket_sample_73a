@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item,    only: [:show,:destroy]
+
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
     @newitems = Item.includes(:images).where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -26,18 +28,26 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @prefectures = Prefecture.all
-
   end
 
   def update
   end
 
   def destroy
+    if @item.destroy 
+       redirect_to root_path
+    else
+      render :show
+    end
   end
 
+
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
