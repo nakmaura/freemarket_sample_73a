@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
       @item.images.build
-      @category_parent_array = ["洗濯してください。"]
-      @category_parent_array = Category.where(ancestry: nil)
+      # @category_parent_array = ["選択してください。"]
+      # @category_parent_array = Category.where(ancestry: nil)
     else
       redirect_to user_session_path
     end
@@ -39,10 +39,23 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  # #カテゴリ機能の子供要素
+  # def get_category_children
+  #   @category_children = Category.find(params[:category_id]).children
+  #   render json: @category_children
+  # end
+
+  # #カテゴリ機能の孫メソッド
+  # def get_category_grandchildren
+  #   @category_grandchildren = Category.find(params[:category_id]).children
+  #   render json: @category_grandchildren
+  # end
+
   private
 
   def item_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
-    :postage_payer,:preparation_day,images_attributes:[:url]).merge(seller_id:current_user.id,)
+    :postage_payer,:preparation_day,images_attributes:[:url]).merge(seller_id:current_user.id)
   end
+
 end
