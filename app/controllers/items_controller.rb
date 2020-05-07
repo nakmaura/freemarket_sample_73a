@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
       @item.images.build
+      @category_parent_array = ["洗濯してください。"]
+      @category_parent_array = Category.where(ancestry: nil)
     else
       redirect_to user_session_path
     end
