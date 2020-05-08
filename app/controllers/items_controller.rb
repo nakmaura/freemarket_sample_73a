@@ -39,12 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def get_category_child
-    @category_child = Category.where(params[:parent_id]).children
+    @category_child = Category.where(params[:parent_id])
     render json: @category_child
   end
 
   def get_category_grandchild
-    @category_grandchild = Category.where(params[:child_id]).children
+    @category_grandchild = Category.where(params[:child_id])
     render json: @category_grandchild
   end
 
