@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item,    only: [:show,:destroy]
   before_action :set_category, only:[:index,:new,:edit]
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
