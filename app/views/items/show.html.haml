@@ -9,19 +9,22 @@
       %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        メンズ
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to "/" do
-        ジャケット/アウター
-    %li
-      %i.fa.fa-angle-right
+        - if @item.category.parent.parent.name != ""
+          = @item.category.parent.parent.name
+          %li
+            %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        ノーカラージャケット
+        - if @item.category.parent.name != ""
+          = @item.category.parent.name
+          %li
+            %i.fa.fa-angle-right
     %li
-      %i.fa.fa-angle-right
+      = link_to "/" do
+        - if @item.category.name != ""
+          = @item.category.name
+          %li
+            %i.fa.fa-angle-right
     %li
       %p
       = link_to item_path(@item.id) do
@@ -60,13 +63,13 @@
                   %th カテゴリー
                   %td
                     = link_to "/" do
-                      メンズ
+                      = @item.category.parent.parent.name
                     %br
                       = link_to "/" do
-                        ジャケット/アウター
+                        = @item.category.parent.name
                       %br
                         = link_to "/" do
-                          ノーカラージャケット
+                          = @item.category.name
                 %tr
                   %th ブランド
                   %td
