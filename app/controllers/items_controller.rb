@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item,    only: [:show,:destroy,:edit,:update]
-  before_action :set_category, only:[:new,:edit,:update]
+  before_action :set_category, only:[:new,:create,:edit,:update]
   before_action :move_to_sign_in,except: [:index,:show]
 
   def index
