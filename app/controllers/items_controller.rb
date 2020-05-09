@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item,    only: [:show,:destroy,:edit,:update]
-  before_action :set_category, only:[:index,:new,:edit]
+  before_action :set_category, only:[:new,:edit,:update]
+  before_action :move_to_sign_in,except: [:index,:show]
 
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -76,5 +77,9 @@ class ItemsController < ApplicationController
 
   def set_category
     @category_parent = Category.where(ancestry: nil)
+  end
+
+  def move_to_sign_in
+    redirect_to sign_in_path unless user_signed_in?
   end
 end
