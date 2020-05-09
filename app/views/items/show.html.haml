@@ -104,7 +104,7 @@
           .item_option
             -if user_signed_in?
               - if @item.seller.id == current_user.id
-                = link_to edit_item_path(@item), class:"item_edit", data: {turbolinks: false}  do
+                = link_to edit_item_path(@item), method: "get",class:"item_edit", data: {turbolinks: false}  do
                   商品を編集する
                 = link_to item_path(@item), method: "delete", class:"item_delete" do
                   商品を削除する

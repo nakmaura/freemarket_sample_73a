@@ -5,27 +5,46 @@
   %main.sell-main
     %section.sell-container
       = form_with model: @item,local: true do |f|
-        = render 'layouts/error_messages', model: f.object
+        = render "layouts/error_messages", model: f.object
         -# 出品画像
         .sell-container__content
           .sell-title
+          %h2.sell-title__edit
+            商品の情報を入力
             %h3.sell-title__text
               出品画像
               %span.sell-title__require
                 必須
             %p 最大10枚までアップロードできます
             .post__drop__box__container
-              .prev-content
-              .label-content
-                %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
-                  %pre.label-box__text-visible クリックしてファイルをアップロード
-              .hidden-content
-                = f.fields_for :images do |i|
-                  = i.file_field :url, class: "hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][url]", id: "item_images_attributes_1_urle" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][url]", id: "item_images_attributes_2_url" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][url]", id: "item_images_attributes_3_url" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][url]", id: "item_images_attributes_4_url" }
+            .prev-content
+
+              //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
+              - @item.images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.url.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+            .label-content
+
+              //プレビューの数に合わせてforオプションを指定
+              = f.label :"images_attributes_#{@item.images.length}_url", class: "label-box", id: "label-box--#{@item.images.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |i|
+
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = i.file_field :url, class: "hidden-field"
+                = i.check_box:_destroy, class: "hidden-checkbox"
+
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @item.images.length.upto(4) do |i|
+                %input{name: "item[images_attributes][#{i}][url]", id: "item_images_attributes_#{i}_url", class:"hidden-field", type:"file"}
           .error-messages#error-image
 
         -#商品名
@@ -35,7 +54,7 @@
               商品名
               %span.sell-title__require
                 必須
-          = f.text_field :name, {class:'sell-container__content__name',  placeholder: '40文字まで'}
+          = f.text_field :name, {class:'sell-container__content__name', placeholder: '40文字まで'}
           .error-messages#error-name
           .sell-title
             %h3.sell-title__text
@@ -59,9 +78,10 @@
                 %span.sell-title__require
                   必須
             .sell-collection_select
-              = f.label :category_id, {class: 'sell-collection_select__label'}do
-                .select_collection_select-category
-                  = f.collection_select :category_id, @category_parent, :id,:name,{ prompt: '選択してください' },{id: 'parent_category'}
+              = f.label :category_id, {class: 'sell-collection_select__label'} do
+                = f.select :categoly,['選択してください','レディース','メンズ','ベビー・キッズ','インテリア・住まい・子供'],{},class: 'sell-collection_select__pulldown'
+                -# 上記はactive_hash適応後下記に書き換え
+                -# = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select', required: "required"}
             .error-messages#error-category
           
             .sell-title
@@ -131,7 +151,7 @@
             .sell-container__content__price__form
               = f.label :price, class: 'sell-container__content__price__form__label' do
                 ¥
-                = f.number_field :price, {placeholder: '0', value: '', autocomplete:"off", class: 'sell-container__content__price__form__box'}
+                = f.number_field :price, {autocomplete:"off", class: 'sell-container__content__price__form__box'}
           .error-messages#error-price
 
           .sell-container__content__commission
@@ -143,9 +163,9 @@
               販売利益
             .sell-container__content__profit__right ー
 
-          -# 出品確定、戻るボタン
+          -# 変更確定、戻るボタン
           .submit-btn
-            = f.submit '出品する', class: 'submit-btn__sell-btn'
+            = f.submit '変更する', class: 'submit-btn__sell-btn'
             = link_to 'もどる', root_path, class: 'submit-btn__return-btn'
           .attention-box
             %p
