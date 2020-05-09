@@ -72,7 +72,8 @@ class ItemsController < ApplicationController
   def item_update_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
     :postage_payer,:preparation_day,images_attributes: [:url, :_destroy, :id]).merge(seller_id:current_user.id,)
-  
+  end
+
   def set_category
     @category_parent = Category.where(ancestry: nil)
   end
