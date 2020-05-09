@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item,    only: [:show,:destroy]
+  before_action :set_item,    only: [:show,:destroy,:edit,:update]
 
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.build
     else
-      redirect_to user_session_path
+      render :new
     end
   end
 
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else 
-      redirect_to new_item_path
+      render :new
     end
   end
 
@@ -32,13 +32,18 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_update_params)
+      redirect_to root_path, notice: '変更しました！'
+   else
+     render :edit
+   end
   end
 
   def destroy
     if @item.destroy 
-       redirect_to root_path
+       redirect_to root_path, notice: '削除しました！'
     else
-      render :show
+      render :edit
     end
   end
 
@@ -51,6 +56,11 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
-    :postage_payer,:preparation_day,images_attributes:[:url]).merge(seller_id:current_user.id,)
+    :postage_payer,:preparation_day,images_attributes: [:url]).merge(seller_id:current_user.id,)
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
+    :postage_payer,:preparation_day,images_attributes: [:url, :_destroy, :id]).merge(seller_id:current_user.id,)
   end
 end
