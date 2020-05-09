@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     if @item.destroy 
        redirect_to root_path, notice: '削除しました！'
     else
-      render :edit
+      render :show
     end
   end
 
