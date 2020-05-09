@@ -64,9 +64,8 @@ $(document).on('turbolinks:load', function(){
 
     // 子カテゴリー選択後のイベント
     $('.select_collection_select-category').on('change','#child_category', function(){
-      var child_category_id = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+      var child_category_id = $('#child_category option:selected')[0].value; //選択された子カテゴリーのidを取得
       if (child_category_id != "選択してください"){ //子カテゴリーが初期値でないことを確認
-          console.log(child_category_id);
         $.ajax({
           url: 'new/get_category_grandchild',
           type: 'GET',
@@ -89,6 +88,7 @@ $(document).on('turbolinks:load', function(){
       }else{
         $('#grandchild_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
       }
+      debugger;
     });
   });
 });
