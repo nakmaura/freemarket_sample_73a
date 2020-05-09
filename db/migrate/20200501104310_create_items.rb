@@ -4,11 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.timestamps
       t.string :name, null: false
       t.text :introduction, null: false
-      # t.references :category, null: false, foreign_key: true
-      # t.references	:brand, foreign_key: true
       t.integer :price, null: false
-      # t.references :seller, null: false, foreign_key: true
-      # t.references :buyer, foreign_key: true
       t.string :seller_id
       t.string :buyer_id
       t.string :bland
@@ -16,6 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :condition_id,null: false
       t.integer :postage_payer,null: false
       t.integer :preparation_day,null: false
+      t.references :category,foreign_key:true
       t.timestamps
     end
   end
