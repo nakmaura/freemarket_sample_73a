@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     collection do
       get 'new/get_category_child', to: 'items#get_category_child', defaults: { format: 'json' }
       get 'new/get_category_grandchild', to: 'items#get_category_grandchild', defaults: { format: 'json' }
+      get 'edit/get_category_child', to: 'items#get_category_child', defaults: { format: 'json' }
+      get 'edit/get_category_grandchild', to: 'items#get_category_grandchild', defaults: { format: 'json' }
     end
   end
   resources :purchases,only:[:new]
