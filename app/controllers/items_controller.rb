@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item,    only: [:show,:destroy,:edit,:update]
+  before_action :set_category, only:[:index,:new,:edit]
 
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -47,8 +48,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def get_category_child
+    @category_child = Category.find(params[:parent_id]).children
+    render json: @category_child
+  end
 
-  private
+  def get_category_grandchild
+    @category_grandchild = Category.find(params[:child_id]).children
+    render json: @category_grandchild
+  end
+
+ private
 
   def set_item
     @item = Item.find(params[:id])
@@ -56,11 +66,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
-    :postage_payer,:preparation_day,images_attributes: [:url]).merge(seller_id:current_user.id,)
+    :postage_payer,:preparation_day,:category_id,images_attributes:[:url]).merge(seller_id:current_user.id)
   end
 
   def item_update_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
     :postage_payer,:preparation_day,images_attributes: [:url, :_destroy, :id]).merge(seller_id:current_user.id,)
+  
+  def set_category
+    @category_parent = Category.where(ancestry: nil)
   end
 end
