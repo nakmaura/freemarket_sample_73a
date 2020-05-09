@@ -9,21 +9,26 @@
       %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        メンズ
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to "/" do
-        ジャケット/アウター
-    %li
-      %i.fa.fa-angle-right
+        - if @item.category.parent.parent.name != ""
+          = @item.category.parent.parent.name
+          %li
+            %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        ノーカラージャケット
+        - if @item.category.parent.name != ""
+          = @item.category.parent.name
+          %li
+            %i.fa.fa-angle-right
     %li
-      %i.fa.fa-angle-right
+      = link_to "/" do
+        - if @item.category.name != ""
+          = @item.category.name
+          %li
+            %i.fa.fa-angle-right
     %li
-      %p product2
+      %p
+      = link_to item_path(@item.id) do
+        = @item.name
 
 .main
   .showMain
@@ -58,22 +63,25 @@
                   %th カテゴリー
                   %td
                     = link_to "/" do
-                      メンズ
+                      = @item.category.parent.parent.name
                     %br
                       = link_to "/" do
-                        ジャケット/アウター
+                        = @item.category.parent.name
                       %br
                         = link_to "/" do
-                          ノーカラージャケット
+                          = @item.category.name
                 %tr
                   %th ブランド
                   %td
-                %tr
-                  %th 商品サイズ
-                  %td
+                    = @item.bland
+                -# %tr
+                -#   %th 商品サイズ
+                -#   %td
                 %tr
                   %th 商品の状態
                   %td 
+             
+             
                     = @item.condition_id
                 %tr
                   %th 配送料の負担
@@ -98,7 +106,7 @@
           .item_option
             -if user_signed_in?
               - if @item.seller.id == current_user.id
-                = link_to edit_item_path(@item), class:"item_edit", data: {turbolinks: false}  do
+                = link_to edit_item_path(@item), method: "get",class:"item_edit", data: {turbolinks: false}  do
                   商品を編集する
                 = link_to item_path(@item), method: "delete", class:"item_delete" do
                   商品を削除する

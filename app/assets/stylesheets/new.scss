@@ -56,6 +56,32 @@ img {
     margin: 0 0 0 8px;
   }
 }
+.post__drop__box__container{
+display: block;
+margin: 16px auto 0;
+display: flex;
+flex-wrap: wrap;
+
+//プレビュー表示欄のCSS
+.prev-content {
+  display: flex;
+  .preview-box {
+    height: 162px;
+    width: 112px;
+    margin: 0 15px 10px 0;
+    .upper-box {
+      height: 112px;
+      width: 100%;
+      img{
+        width: 112px;
+        height: 112px;
+      }
+    }
+  }
+}
+}
+
+
 
 .sell-sub-head{
   box-sizing: border-box;

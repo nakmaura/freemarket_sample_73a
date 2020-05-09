@@ -87,3 +87,4 @@ gem 'mini_magick'
 gem 'payjp'
 gem 'rubocop', require: false
 gem 'merge_db_schema'
+gem 'ancestry'

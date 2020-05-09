@@ -26,6 +26,8 @@
           %li.headder__nav-listsright-loginitem
             = link_to destroy_user_session_path, method: :delete,id:'catBtn' do
               ログアウト
+          %li.headder__nav-listsright-loginitem    
+            = current_user.name
             %ul.headder__nav-listsright-brandsPulldown
           %li.headder__nav-listsright-newitem
             = link_to user_path(current_user.id),id:'catBtn' do
