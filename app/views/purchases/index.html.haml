@@ -24,7 +24,7 @@
       //商品購入フォーラム
       .content-main__buy__item__detail
         .content-main__buy__item__detail__inner
-          = form_with local:true do |f|
+          = form_with action: :pay, method: :post, local: true do |f|
             %ul.price-cell
               %li.praice-cell__list
                 .price-cell__list__label
@@ -36,15 +36,44 @@
               .buy-pay-info__inner
                 %h3
                   支払い方法
-                = link_to new_card_path do
-                  ＋登録してください
-            .buy-delivery-info
-              .buy-pay-info__inner
-                %h3
-                  配送先
-                = link_to new_delivery_path do
-                  ＋登録してください
-            = f.submit '購入する',class: 'purform-btn'
+                .user-info-update
+        = link_to "変更する", "#", calss:"update-btn"
+      .user-info-text
+      - if @default_card_information.blank?
+        %br /
+      - else
+        = "**** **** **** " + "#{@default_card_information.last4}"
+        %br
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = "有効期限 " + exp_month + " / " + exp_year
+        %br
+  .buy-content__user-info
+    .buy-content__user-info__inner              
+      %h3 配送先
+      .user-info-update
+        = link_to "変更する","#", calss:"update-btn"
+      .user-info-text
+        〒111-1111
+        %br
+        大阪府大阪市北区〇〇1-11
+        %br
+        山田太郎
+        = form_tag(action: :pay, method: :post) do
+          %button.buy-button{type:"submit"} 購入する
 
   //footer部分
   = render "layouts/item-footer"
+
+
+
+-#     = link_to new_mypages_card_path do
+-#       ＋登録してください
+-# .buy-delivery-info
+-#   .buy-pay-info__inner
+-#     %h3
+-#       配送先
+-#     = link_to new_delivery_path do
+-#       ＋登録してください
+-# = link_to done_item_purchases_path do
+-#   = f.submit '購入する',class: 'purform-btn'

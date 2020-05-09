@@ -27,7 +27,6 @@ class PurchasesController < ApplicationController
 
   def done
     @item.buyer_id = current_user.id
-    @item.save
   end
 
   private
