@@ -1,4 +1,5 @@
-class PurchasesController < ApplicationController
+class BuyersController < ApplicationController
+
   require 'payjp'#Payjpの読み込み
   before_action :set_card, :set_item
 
@@ -18,15 +19,16 @@ class PurchasesController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-      :amount => @item.price, #支払金額を引っ張ってくる
-      :customer => @card.customer_id,  #顧客ID
-      :currency => 'jpy',              #日本円
+      amount: @item.price, #支払金額を引っ張ってくる
+      customer: @card.customer_id,  #顧客ID
+      currency: 'jpy',              #日本円
     )
     redirect_to done_item_purchases_path #完了画面に移動
   end
 
   def done
     @item.buyer_id = current_user.id
+    @item.save
   end
 
   private
