@@ -12,7 +12,7 @@
         = form_with local:true do |f|
           .credit-form
             = f.label 'クレジットカード一覧',class:'credit-label'
-            = link_to new_mypages_card_path do
+            = link_to new_mypages_card_path, method: :get do
               = f.submit 'クレジットカードを追加する',class:'credit-btn'
             = link_to card_path (current_user.id) do
               = f.submit 'クレジットカードを削除する',class:'credit-btn'
