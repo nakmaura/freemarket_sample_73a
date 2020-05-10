@@ -1,0 +1,23 @@
+.mypage-content
+  .my-header
+    = render 'items/headder'
+  .my-tag
+    = render 'layouts/tag'
+  .my-content
+    = render 'layouts/sidebar'
+    .main-bar
+      クレジットカード情報
+      .form-content
+        %br
+        = "**** **** **** " + @default_card_information.last4
+        %br
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+        = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button.delete-btn 削除する
+        = link_to user_path(current_user.id),id:'catBtn' do
+          マイページ
+  .my-footer
+    = render 'items/footer'

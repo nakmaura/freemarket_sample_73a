@@ -1,4 +1,5 @@
-class PurchasesController < ApplicationController
+class BuyersController < ApplicationController
+
   require 'payjp'#Payjpの読み込み
   before_action :set_card, :set_item
 

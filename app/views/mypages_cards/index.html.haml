@@ -14,5 +14,7 @@
             = f.label 'クレジットカード一覧',class:'credit-label'
             = link_to new_mypages_card_path do
               = f.submit 'クレジットカードを追加する',class:'credit-btn'
+            = link_to card_path (current_user.id) do
+              = f.submit 'クレジットカードを削除する',class:'credit-btn'
   .my-footer
     = render 'items/footer'
