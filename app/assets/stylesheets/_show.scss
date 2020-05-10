@@ -284,13 +284,44 @@ body{
       .item_option {
       margin-top: 10px;
       padding: 20px;
-      background-color: red;
+      text-align: center;
+      .item_box{
+      margin-top: 10px;
+      padding: 20px;
+      background-color:#3CCACE;
       text-align: center;
       .item_purchase {
-        color: black;
+        color: #ffffff;
+        font-size: 30px;
         text-decoration: none;
+        font-weight: 600;
         }
-      } 
+      }
+    }
+      .item_box1{
+      margin-top: 10px;
+      padding: 20px;
+      background-color:#3CCACE;
+      text-align: center;
+      .item_edit{
+        color: #ffffff;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        }
+      }
+      .item_box2{
+      margin-top: 10px;
+      padding: 20px;
+      background-color: red;
+      text-align: center;
+      .item_delete{
+        color: #ffffff;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        }
+      }
     .commentBox{
       padding: 24px;
       background-color: #fff;
@@ -454,4 +485,18 @@ a {
       } 
     }
   }
+}
+.top-page{
+  margin-top: 10px;
+  padding: 20px;
+  background-color:#3CCACE;
+  text-align: center;
+  width: 320px;
+  margin:auto;
+  .form-btn{
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    }
 }

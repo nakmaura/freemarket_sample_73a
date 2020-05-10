@@ -78,6 +78,7 @@
           #exp_month{
             position: relative;
             z-index: 2;
+            width: 43%;
             height: 48px;
             padding: 0 16px;
             border-radius: 4px;
@@ -91,6 +92,7 @@
           #exp_year{
             position: relative;
             z-index: 2;
+            width: 44%;
             height: 48px;
             padding: 0 16px;
             border-radius: 4px;
@@ -188,13 +190,12 @@
   }
 }
 .main-bar1 {
-  margin-right: auto;
   margin-left: 50px;
-  width: 100%;
-  margin-bottom: 50px;
+  width: 700px;
+  margin-right: auto;
   &-box{
-    width: 500px;
-    background-color: #ffffff;
+    background-color: $white;
+    text-align: center;
   }
     h2{
       text-align: center;
@@ -225,15 +226,15 @@
       .delete-btn{
         margin: 24px 0 0;
         background: #ea352d;
+        margin: auto;
         color: #fff;
         display: block;
-        width: 100%;
+        width: 320px;
         line-height: 48px;
         font-size: 14px;
         border: 1px solid transparent;
         transition: all ease-out .3s;
         cursor: pointer;
-        text-align: center;
         text-decoration: none;
       }
 
