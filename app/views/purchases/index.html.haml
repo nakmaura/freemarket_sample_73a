@@ -12,13 +12,13 @@
         .content-main__buy__item__inner
           .content-main__buy__item__inner__box
             %h3.content-main__buy__item__inner__box__image
-              = image_tag 'https://static.mercdn.net/thumb/photos/m50753128973_1.jpg?1569347049',size: "60x80"
+              = image_tag "#{@item.images[0].url}", size: '80x80', class: 'buydetails-contet__image'
             .content-main__buy__item__inner__box__detail
               %p.item-name
-                トップス
+                = @item.name
               %p.item-buy
                 %span.item-buy__price
-                  ¥3,300
+                  = "¥#{@item.price.to_s}"
                 %span.item_buy__fee
                   （税込）送料込み
       //商品購入フォーラム
@@ -31,36 +31,36 @@
                   支払い金額
                 .price-cell__list__price
                   %span.price-cell__list__price__data
-                    ¥3,300
+                    = "¥#{@item.price.to_s}"
             .buy-pay-info
               .buy-pay-info__inner
                 %h3
                   支払い方法
                 .user-info-update
-      .user-info-text
-      - if @default_card_information.blank?
-        %br /
-      - else
-        = "**** **** **** " + "#{@default_card_information.last4}"
-        %br
-        - exp_month = @default_card_information.exp_month.to_s
-        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-        = "有効期限 " + exp_month + " / " + exp_year
-        %br
-  .buy-content__user-info
-    .buy-content__user-info__inner              
-      %h3 配送先
-      .user-info-update
-      .user-info-text
-        〒111-1111
-        %br
-        大阪府大阪市北区〇〇1-11
-        %br
-        山田太郎
-        = form_tag(action: :pay, method: :post) do
-          %button.buy-button{type:"submit"} 購入する
+          .user-info-text
+          - if @default_card_information.blank?
+            %br /
+          - else
+            = "**** **** **** " + "#{@default_card_information.last4}"
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = "有効期限 " + exp_month + " / " + exp_year
+            %br
+          .buy-delivery-info
+            .buy-pay-info__inner             
+              %h3 配送先
+              .user-info-update
+                = "〒#{Destination.find_by(user: current_user).post_code}"
+                %br
+                = Destination.find_by(user: current_user).prefecture_code
+                = Destination.find_by(user: current_user).city
+                = Destination.find_by(user: current_user).house_number
+                - unless Destination.find_by(user: current_user).building_name == nil
+                  = Destination.find_by(user: current_user).building_name
+            - if Card.where(user: current_user).exists?
+              = form_tag(action: :pay, method: :post) do
+                %button.buy-button{type:"submit"} 購入する
 
   //footer部分
   = render "layouts/item-footer"
-
-

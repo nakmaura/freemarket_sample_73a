@@ -12,8 +12,9 @@
       .content-card__input__form__inner
         .form-group
           = form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-            %label カード番号
-            .require 必須
+            .form-group1
+              %label カード番号
+              %span.require 必須
             = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
             %ul.signup-card-list
               %li
@@ -31,8 +32,9 @@
               %li
                 = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px"
             %br
-            %label 有効期限
-            .require 必須
+            .form-group-signup-form-expire
+              %label 有効期限
+              %span.require 必須
             %select#exp_month{name: "exp_month", type: "text"}
               %option{value: ""} --
               %option{value: "1"}01
@@ -64,10 +66,14 @@
             %span 年
             %br
             %br
+            .form-group1
             %label セキュリティコード
-            .require 必須
+            %span.require 必須
             = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
             %br
             #card_token
             %br
             = submit_tag "追加する", id: "token_submit"
+            %br
+            %br
+            %br
