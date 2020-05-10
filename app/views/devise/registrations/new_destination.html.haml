@@ -33,7 +33,7 @@
                 = f.label '都道府県',class: 'form-group__label'
                 %span.form-require
                   必須
-                = f.select :prefecture_code,['東京都','埼玉県','千葉県','茨城県','栃木県','群馬県','神奈川県'],{},class: 'form-group__prefecture-select'
+                = f.select :prefecture_code,Prefecture.all.map{ |pre| [pre.name, pre.id] }
               .form-group
                 = f.label '市町村',class: 'form-group__label'
                 %span.form-require

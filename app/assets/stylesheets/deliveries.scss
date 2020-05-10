@@ -42,7 +42,7 @@
         &__first-kana{
           @include input;
         }
-        &__prefecture-select{
+        #destination_prefecture_code{
           @include select;
           width: 100%;
           margin-top: 8px;
