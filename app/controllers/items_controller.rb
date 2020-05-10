@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item,    only: [:show,:destroy,:edit,:update]
-  before_action :set_category, only:[:index,:new,:edit]
+  before_action :set_category, only:[:new,:edit]
+  before_action :move_to_sign_in,except: [:index,:show]
 
   def index
     @blands = Item.includes(:images).where.not(bland: "").where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -8,11 +9,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @item = Item.new
-      @item.images.build
-    else
-      render :new
+    @item = Item.new
+    @item.images.build
+    def get_category_child
+      @category_child = Category.find(params[:parent_id]).children
+      render json: @category_child
+    end
+  
+    def get_category_grandchild
+      @category_grandchild = Category.find(params[:child_id]).children
+      render json: @category_grandchild
     end
   end
 
@@ -26,6 +32,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    def get_category_child
+      @category_child = Category.find(params[:parent_id]).children
+      render json: @category_child
+    end
+  
+    def get_category_grandchild
+      @category_grandchild = Category.find(params[:child_id]).children
+      render json: @category_grandchild
+    end
   end
 
   def show
@@ -33,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_update_params)
+    if @item.update(item_params)
       redirect_to root_path, notice: '変更しました！'
    else
      render :edit
@@ -48,16 +63,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_category_child
-    @category_child = Category.find(params[:parent_id]).children
-    render json: @category_child
-  end
-
-  def get_category_grandchild
-    @category_grandchild = Category.find(params[:child_id]).children
-    render json: @category_grandchild
-  end
-
  private
 
   def set_item
@@ -66,15 +71,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
-    :postage_payer,:preparation_day,:category_id,images_attributes:[:url]).merge(seller_id:current_user.id)
-  end
-
-  def item_update_params
-    params.require(:item).permit(:name,:price,:introduction,:bland,:prefecture_name,:condition_id,
-    :postage_payer,:preparation_day,images_attributes: [:url, :_destroy, :id]).merge(seller_id:current_user.id,)
+    :postage_payer,:preparation_day,:category_id,images_attributes:[:url,:_destroy, :id]).merge(seller_id:current_user.id)
   end
 
   def set_category
     @category_parent = Category.where(ancestry: nil)
+  end
+
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end

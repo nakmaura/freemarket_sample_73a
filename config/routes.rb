@@ -17,10 +17,15 @@ Rails.application.routes.draw do
       end
     end
     collection do
-      get 'new/get_category_child', to: 'items#get_category_child', defaults: { format: 'json' }
-      get 'new/get_category_grandchild', to: 'items#get_category_grandchild', defaults: { format: 'json' }
+      get 'get_category_child', to: 'items#get_category_child', defaults: { format: 'json' }
+      get 'get_category_grandchild', to: 'items#get_category_grandchild', defaults: { format: 'json' }
     end
+    member do
+      get 'get_category_child', to: 'items#get_category_child', defaults: { format: 'json' }
+      get 'get_category_grandchild', to: 'items#get_category_grandchild', defaults: { format: 'json' }
   end
+end
+  resources :purchases,only:[:new]
   resources :buyers, only: [:index]
   resources :cards,only:[:new,:create]
   resources :mypages_cards,only:[:index,:new]
