@@ -28,11 +28,15 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |introduction|text|null: false|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true|
 |price|integer|null: false|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|foreign_key: true|
+|seller_id|string|
+|buyer_id|string|
+|bland|string|
+|prefecture_name|integer|null: false|
+|condition_id|integer|null:false|
+|postage_payer|integer|null:false|
+|preparation_day|integer|null:false|
+|category_id|reference|foreign_key:true|
 
 ### Association
 - has_many :item_images

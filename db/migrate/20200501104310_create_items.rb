@@ -13,7 +13,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :postage_payer,null: false
       t.integer :preparation_day,null: false
       t.references :category,foreign_key:true
-      t.timestamps
     end
   end
 end
