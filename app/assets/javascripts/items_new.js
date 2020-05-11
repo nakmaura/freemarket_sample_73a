@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function(){
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
                     <div class="upper-box">
-                      <img src="" alt="preview">
+                      <img src="" width="112" height="112" alt="preview">
                     </div>
                     <div class="lower-box">
                       <div class="update-box">
