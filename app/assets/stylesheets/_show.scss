@@ -285,41 +285,41 @@ body{
       margin-top: 10px;
       padding: 20px;
       text-align: center;
-      .item_box{
-      margin-top: 10px;
-      padding: 20px;
-      background-color:#3CCACE;
-      text-align: center;
-      .item_purchase {
+      .item_purchase{
         color: #ffffff;
         font-size: 30px;
         text-decoration: none;
         font-weight: 600;
+        .item_box{
+          margin-top: 10px;
+          padding: 20px;
+          background-color:#3CCACE;
+          text-align: center;
         }
       }
     }
+    .item_edit{
+      color: #ffffff;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: 600;
       .item_box1{
-      margin-top: 10px;
-      padding: 20px;
-      background-color:#3CCACE;
-      text-align: center;
-      .item_edit{
-        color: #ffffff;
-        font-size: 20px;
-        text-decoration: none;
-        font-weight: 600;
+        margin-top: 10px;
+        padding: 20px;
+        background-color:#3CCACE;
+        text-align: center;
         }
       }
+    .item_delete{
+      color: #ffffff;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: 600;
       .item_box2{
-      margin-top: 10px;
-      padding: 20px;
-      background-color: red;
-      text-align: center;
-      .item_delete{
-        color: #ffffff;
-        font-size: 20px;
-        text-decoration: none;
-        font-weight: 600;
+        margin-top: 10px;
+        padding: 20px;
+        background-color: red;
+        text-align: center;
         }
       }
     .commentBox{
