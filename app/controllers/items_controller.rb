@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item,    only: [:show,:destroy,:edit,:update]
-  before_action :set_category, only:[:new,:edit]
+  before_action :set_category, only:[:new,:create,:edit,:update]
   before_action :move_to_sign_in,except: [:index,:show]
 
   def index
@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else 
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path, notice: '変更しました！'
    else
-     render :edit
+    redirect_to edit_item_path(@item)
    end
   end
 
@@ -75,7 +75,10 @@ class ItemsController < ApplicationController
   end
 
   def set_category
-    @category_parent = Category.where(ancestry: nil)
+    @category_parent = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent << parent
+      end
   end
 
   def move_to_sign_in

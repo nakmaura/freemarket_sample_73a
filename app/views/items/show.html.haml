@@ -9,22 +9,19 @@
       %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        - if @item.category.parent.parent.name != ""
-          = @item.category.parent.parent.name
-          %li
-            %i.fa.fa-angle-right
+        = @item.category.parent.parent.name
+        %li
+          %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        - if @item.category.parent.name != ""
-          = @item.category.parent.name
-          %li
-            %i.fa.fa-angle-right
+        = @item.category.parent.name
+        %li
+          %i.fa.fa-angle-right
     %li
       = link_to "/" do
-        - if @item.category.name != ""
-          = @item.category.name
-          %li
-            %i.fa.fa-angle-right
+        = @item.category.name
+        %li
+          %i.fa.fa-angle-right
     %li
       %p
       = link_to item_path(@item.id) do
