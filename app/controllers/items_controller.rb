@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path, notice: '変更しました！'
+      redirect_to item_path, notice: '変更しました！'
    else
     redirect_to edit_item_path(@item)
    end
