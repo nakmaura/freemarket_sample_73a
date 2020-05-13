@@ -40,7 +40,6 @@
 
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = i.file_field :url, class: "hidden-field"
-                = i.check_box:_destroy, class: "hidden-checkbox"
 
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @item.images.length.upto(4) do |i|
@@ -152,15 +151,6 @@
                 ¥
                 = f.number_field :price, {autocomplete:"off", class: 'sell-container__content__price__form__box'}
           .error-messages#error-price
-
-          .sell-container__content__commission
-            .sell-container__content__commission__left
-              販売手数料 （10%）
-            .sell-container__content__commission__right ー
-          .sell-container__content__profit
-            .sell-container__content__profit__left
-              販売利益
-            .sell-container__content__profit__right ー
 
           -# 変更確定、戻るボタン
           .submit-btn
