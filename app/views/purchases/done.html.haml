@@ -28,6 +28,7 @@
               .buy-price-table__right
                 = "¥#{@item.price.to_s}"
         .buy-content__user-info
-          .buy-content__user-info__submit
-            = link_to "トップページへ戻る", root_path, class: 'buy-content__user-info__submit__button'
+          = link_to root_path, class: 'buy-content__user-info__submit'do
+            .buy-content__user-info__submit__button
+              トップページへ戻る
   = render "layouts/item-footer"

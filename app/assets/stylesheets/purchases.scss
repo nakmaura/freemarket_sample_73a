@@ -187,20 +187,20 @@
     margin: 0 150px;
     padding-bottom: 100px;
     .buy-content__user-info__submit{
-      height: 45%;
-      margin-top: 50px;
-      width: 100%;
-      background-color: #888888;
-      cursor: pointer;
-      color: #ffffff;
-      font-size: 14px;
-      line-height: 48px;
-      font-weight: 600;
-      text-align: center;
+      height: auto;
+      text-decoration: none;
+      color: white;
       .buy-content__user-info__submit__button{
-        height: auto;
-        text-decoration: none;
-        color: white;
+        height: 45%;
+        margin-top: 50px;
+        width: 100%;
+        background-color: red;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 48px;
+        font-weight: 600;
+        text-align: center;
       }
     }
   }
