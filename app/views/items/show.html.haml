@@ -38,7 +38,7 @@
           .itemBox__body
             %ul
               - @item.images.each do |image|
-                = image_tag image.url.url,class: "img_show"
+                = image_tag image.url.url,class: "img_show",size: "190x150"
               %li
           .itemBox__price
             %span

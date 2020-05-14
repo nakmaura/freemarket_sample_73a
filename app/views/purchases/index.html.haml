@@ -54,7 +54,7 @@
                 = "〒#{Destination.find_by(user: current_user).post_code}"
                 %br
                 埼玉県
-                //= Destination.find_by(user: current_user).prefecture_code
+                = Destination.find_by(user: current_user).prefecture_code
                 = Destination.find_by(user: current_user).city
                 = Destination.find_by(user: current_user).house_number
                 - unless Destination.find_by(user: current_user).building_name == nil
