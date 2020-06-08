@@ -109,7 +109,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
