@@ -13,8 +13,9 @@
     .headder__nav
       %ul.headder__nav-listsleft
         %li.headder__nav-listsleft-leftitem
-          = link_to root_path,id:'catBtn' do
-            カテゴリー
+          #category-area
+            カテゴリ
+            = render "layouts/category"
           .headder__nav-tree-display
             %ul.headder__nav-categorytree
               %li.headder__nav-categorytree-item
