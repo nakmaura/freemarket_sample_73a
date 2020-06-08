@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-##itemsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -47,7 +47,7 @@ Things you may want to cover:
 - has_many :favorites
 - has_many :comments
 
-##imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|reference|null: false, foreign_key: true|
@@ -74,7 +74,7 @@ Things you may want to cover:
 - has_many :items
 - has_ancestry
 
-##usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -99,7 +99,7 @@ Things you may want to cover:
 - has_many :items, dependent: :destroy
 - has_many :comments
 
-##credit_cardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_id|string|null: false|unique: true|
@@ -122,7 +122,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
-##favoritesテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
@@ -133,7 +133,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
-##evaluationsテーブル
+## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |evaluation|string|null: false|
@@ -142,7 +142,7 @@ Things you may want to cover:
 - has_many :user_evaluations
 
 
-##user_evaluationsテーブル
+## user_evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -154,7 +154,7 @@ Things you may want to cover:
 - belongs_to :evaluation
 - belongs_to :item
 
-##destinationsテーブル
+## destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
@@ -172,16 +172,16 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##salesテーブル
+## salesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|sale|integer||
+|sale|integer|
 |user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 
-##pointsテーブル
+## pointsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |point|integer||
@@ -190,7 +190,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##todo_listsテーブル
+## todo_listsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |list|text|null:false|
@@ -199,7 +199,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##noticesテーブル
+## noticesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |notice|text|null:false|
@@ -209,7 +209,7 @@ Things you may want to cover:
 - belongs_to :user
 
 
-##articlesテーブル
+## articlesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |news|text|null: false|
