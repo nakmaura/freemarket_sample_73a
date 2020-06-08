@@ -56,7 +56,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 
-##brandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -64,7 +64,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-##categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
